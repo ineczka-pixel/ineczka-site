@@ -1,7 +1,7 @@
 # Раскадровки (contact sheet)
 
 **Назначение:** показать сториборд целиком и дать пролистать кадры по порядку.
-**Где:** `index.html` 191–241 («Книжный магазин», 15 кадров), 243–296 («Мушкетёры», 22 кадра). JS — `openStoryboardFrame`, `prevFrame`, `nextFrame`, `render` ([lightbox](lightbox.md)).
+**Где:** `index.html` 193–243 («Книжный магазин», 15 кадров), 245–316 («Мушкетёры», 22 кадра). JS — `openStoryboardFrame`, `prevFrame`, `nextFrame`, `render` ([lightbox](lightbox.md)).
 
 ## Как устроено
 - Контейнер `div.contact-sheet` (сетка `auto-fit, minmax(90px, 1fr)`), внутри `button.gallery-btn` 16:9 с `onclick="openStoryboardFrame(event)"`.
@@ -11,7 +11,7 @@
 
 ## Как добавить раскадровку
 1. Файлы `assets/storyboard3-frame-01.jpg …`.
-2. Скопировать блок 243–314 (заголовок, описание, `.contact-sheet`), заменить пути, `alt="Кадр N"`, `aria-label="Открыть Кадр N"`.
+2. Скопировать блок 245–316 (заголовок, описание, `.contact-sheet`), заменить пути, `alt="Кадр N"`, `aria-label="Открыть Кадр N"`.
 3. В `tests/e2e/lightbox.spec.ts` добавить строку в массив `sheets` (idx, имя, число кадров, префикс).
 
 ## Тесты

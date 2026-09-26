@@ -9,7 +9,7 @@ test.describe('Контакты', () => {
     await expect(c.getByRole('link', { name: '+375 29 720-27-85' })).toHaveAttribute('href', 'tel:+375297202785');
     await expect(c.getByRole('link', { name: 'WhatsApp' })).toHaveAttribute('href', 'https://wa.me/375297202785');
     await expect(c.getByRole('link', { name: 'Telegram' })).toHaveAttribute('href', 'https://t.me/+375297202785');
-    await expect(c.getByRole('link', { name: 'Instagram' })).toHaveAttribute('href', 'https://instagram.com/ine4ka_viv');
+    await expect(c.getByRole('link', { name: 'Instagram' })).toHaveAttribute('href', 'https://www.instagram.com/ine4ka_viv/');
   });
 
   test('номер в tel: и в WhatsApp совпадает с видимым номером', async ({ page }) => {
@@ -26,5 +26,13 @@ test.describe('Контакты', () => {
   test('копирайт содержит текущий год сайта', async ({ page }) => {
     await openSite(page);
     await expect(page.locator('#contacts')).toContainText('© Ineczka — AI-CREATOR & Handmade, 2026');
+  });
+
+  test('мессенджеры и Instagram открываются в новой вкладке (HR-CONTACTS-1)', async ({ page }) => {
+    await openSite(page);
+    for (const a of await page.locator('#contacts a[href^="https://"]').all()) {
+      await expect(a).toHaveAttribute('target', '_blank');
+      await expect(a).toHaveAttribute('rel', /noopener/);
+    }
   });
 });

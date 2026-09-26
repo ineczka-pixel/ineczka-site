@@ -17,6 +17,19 @@ test.describe('Первый экран', () => {
     expect(r.ratio).toBeCloseTo(675 / 336, 1);
   });
 
+  test('фиолетовая клякса стоит вплотную в правом верхнем углу, без белых зазоров (HR-VISUAL-1)', async ({ page }) => {
+    await openSite(page);
+    const r = await page.evaluate(() => {
+      const s = document.querySelector('#top')!.getBoundingClientRect();
+      const d = document.querySelector('#top .deco-purple-splash')!.getBoundingClientRect();
+      return { dr: s.right - d.right, dt: d.top - s.top, ratio: d.width / d.height };
+    });
+    expect(Math.abs(r.dr)).toBeLessThanOrEqual(1);
+    expect(Math.abs(r.dt)).toBeLessThanOrEqual(1);
+    // блок в пропорциях картинки 390×408 — мазок доходит до краёв блока
+    expect(r.ratio).toBeCloseTo(390 / 408, 1);
+  });
+
   test('подзаголовок: на телефоне без отступов из пробелов и с пустой строкой перед Handmade (HR-TEXT-2)', async ({ page, isMobile }) => {
     await openSite(page);
     const p = page.locator('#top p');
@@ -81,5 +94,37 @@ test.describe('Handmade: превью', () => {
     const [grid, btnRight] = await page.locator('#handmade .masonry').evaluate((g) => [g.getBoundingClientRect().right,
       Math.max(...[...g.querySelectorAll('.gallery-btn')].map((b) => b.getBoundingClientRect().right))]);
     expect(Math.abs(grid - btnRight)).toBeLessThanOrEqual(2);
+  });
+});
+
+test.describe('Портфолио: превью на телефоне', () => {
+  test('на телефоне ленты портфолио — сетка в 2 колонки без горизонтальной прокрутки (HR-VISUAL-2)', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await openSite(page);
+    const rows = page.locator('#ai-creator .scroll-row');
+    const n = await rows.count();
+    expect(n).toBe(6);
+    for (let i = 0; i < n; i++) {
+      const r = await rows.nth(i).evaluate((row) => ({
+        cols: new Set([...row.querySelectorAll('.scroll-item')].map((it) => Math.round(it.getBoundingClientRect().left))).size,
+        scrolls: row.scrollWidth > row.clientWidth + 1,
+        over: [...row.querySelectorAll('.scroll-item')].some((it) => it.getBoundingClientRect().right > window.innerWidth),
+      }));
+      expect(r, `лента ${i + 1}`).toEqual({ cols: 2, scrolls: false, over: false });
+    }
+  });
+
+  test('раскадровки на телефоне не меняются — сетка кадров как раньше', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await openSite(page);
+    const cols = await page.locator('.contact-sheet').first().evaluate((g) => getComputedStyle(g).gridTemplateColumns.split(' ').length);
+    expect(cols).toBeGreaterThanOrEqual(3);
+  });
+
+  test('на компьютере ленты портфолио остаются горизонтальными', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await openSite(page);
+    const display = await page.locator('#portfolio-brands .scroll-row').evaluate((r) => getComputedStyle(r).display);
+    expect(display).toBe('flex');
   });
 });

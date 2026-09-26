@@ -49,6 +49,8 @@
     .hero-gap { display: block; height: 1em; }
     .services-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
     .services-grid > div { padding: 16px !important; }
+    .scroll-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; overflow: visible; }
+    .scroll-item { min-width: 0; }
   }
 </style>
 </head>
@@ -72,7 +74,7 @@
 
   <!-- HERO -->
   <section id="top" style="position: relative; overflow: hidden; background-color: #ffffff">
-    <div class="deco-purple-splash" style="position: absolute; top: 2px; right: -52px; width: 480px; height: 380px; opacity: 0.9; transform: rotate(180deg)"></div>
+    <div class="deco-purple-splash" style="position: absolute; top: 0; right: 0; width: 364px; height: 380px; opacity: 0.9; transform: rotate(180deg)"></div>
     <div class="deco-olive-splash" style="position: absolute; left: 0; width: 420px; height: 209px; opacity: 0.65; transform: rotate(180deg); bottom: 0;"></div>
     <div style="position: relative; max-width: 1180px; margin: 0 auto; padding: 120px 24px 110px; text-align: center;">
       <img src="assets/logo.jpg" alt="Ineczka" style="width: 20vw; max-width: 320px; min-width: 140px; height: auto; display: block; margin: 0 auto 28px;">
@@ -538,9 +540,9 @@
 
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 44px;">
         <a href="tel:+375297202785" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">+375 29 720-27-85</a>
-        <a href="https://wa.me/375297202785" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">WhatsApp</a>
-        <a href="https://t.me/+375297202785" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">Telegram</a>
-        <a href="https://instagram.com/ine4ka_viv" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">Instagram</a>
+        <a href="https://wa.me/375297202785" target="_blank" rel="noopener" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">WhatsApp</a>
+        <a href="https://t.me/+375297202785" target="_blank" rel="noopener" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">Telegram</a>
+        <a href="https://www.instagram.com/ine4ka_viv/" target="_blank" rel="noopener" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">Instagram</a>
       </div>
 
       <div style="border-top: 1px solid #3E3E41; padding-top: 28px; font-size: 13px; color: #8C8C90;">© Ineczka — AI-CREATOR &amp; Handmade, 2026</div>
