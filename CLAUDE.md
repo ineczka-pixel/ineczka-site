@@ -67,6 +67,7 @@
 
 - [docs/workflow/adding-a-feature.md](docs/workflow/adding-a-feature.md) — цикл Compound Engineering для этого сайта.
 - [docs/workflow/ralphex.md](docs/workflow/ralphex.md) — автономное выполнение планов через ralphex.
+- [docs/workflow/adding-content.md](docs/workflow/adding-content.md) — как автор присылает новые работы в портфолио.
 - [docs/plans/](docs/plans/README.md) — планы задач (формат совместим с ralphex).
 - [docs/solutions/](docs/solutions/README.md) — накопленные уроки («compound»).
 
