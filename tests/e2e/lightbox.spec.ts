@@ -1,0 +1,162 @@
+// Фича: docs/features/lightbox.md, docs/features/portfolio-galleries.md, docs/features/handmade.md
+import { test, expect } from '@playwright/test';
+import { openSite, overlay, lbImage, lbVideo, counter, expectLightboxClosed } from '../helpers/site';
+
+const firstHandmade = '#handmade .gallery-btn >> nth=0';
+
+test.describe('Лайтбокс: изображения', () => {
+  test('по умолчанию закрыт', async ({ page }) => {
+    await openSite(page);
+    await expectLightboxClosed(page);
+  });
+
+  test('клик по работе открывает её в полном размере', async ({ page }) => {
+    await openSite(page);
+    await page.locator(firstHandmade).click();
+    await expect(overlay(page)).toBeVisible();
+    await expect(lbImage(page)).toBeVisible();
+    await expect(lbImage(page)).toHaveAttribute('src', /handmade-1-motorcycle\.jpg$/);
+    await expect(lbImage(page)).toHaveAttribute('alt', 'Мотоцикл — картина из CD-дисков');
+    await expect(lbVideo(page)).toBeHidden();
+    // одиночная работа — без стрелок и счётчика
+    await expect(page.locator('#lightbox-prev')).toBeHidden();
+    await expect(page.locator('#lightbox-next')).toBeHidden();
+    await expect(counter(page)).toBeHidden();
+  });
+
+  test('закрывается кнопкой ×', async ({ page }) => {
+    await openSite(page);
+    await page.locator(firstHandmade).click();
+    await page.getByRole('button', { name: 'Закрыть просмотр' }).click();
+    await expectLightboxClosed(page);
+  });
+
+  test('закрывается клавишей Escape', async ({ page }) => {
+    await openSite(page);
+    await page.locator(firstHandmade).click();
+    await page.keyboard.press('Escape');
+    await expectLightboxClosed(page);
+  });
+
+  test('закрывается кликом по затемнению', async ({ page }) => {
+    await openSite(page);
+    await page.locator(firstHandmade).click();
+    await overlay(page).click({ position: { x: 10, y: 10 } });
+    await expectLightboxClosed(page);
+  });
+
+  test('каждая кнопка галереи открывает именно свою картинку', async ({ page }) => {
+    await openSite(page);
+    const buttons = page.locator('.gallery-btn:not([data-video-src])[onclick^="openMedia"]');
+    const n = await buttons.count();
+    expect(n).toBeGreaterThan(0);
+    for (let i = 0; i < n; i++) {
+      const btn = buttons.nth(i);
+      const expected = await btn.locator('img').evaluate((im: HTMLImageElement) => im.currentSrc || im.src);
+      await btn.scrollIntoViewIfNeeded();
+      await btn.click();
+      await expect(lbImage(page)).toHaveAttribute('src', expected);
+      await page.keyboard.press('Escape');
+      await expectLightboxClosed(page);
+    }
+  });
+
+  test('каждая кнопка галереи имеет aria-label', async ({ page }) => {
+    await openSite(page);
+    const noLabel = await page.locator('.gallery-btn').evaluateAll((bs) => bs.filter((b) => !b.getAttribute('aria-label')).length);
+    expect(noLabel).toBe(0);
+  });
+});
+
+test.describe('Лайтбокс: видео', () => {
+  test('видео открывается и начинает играть, при закрытии останавливается', async ({ page }) => {
+    await openSite(page);
+    const btn = page.locator('[data-video-src="assets/video-1.mp4"]');
+    await btn.scrollIntoViewIfNeeded();
+    await btn.click();
+    await expect(lbVideo(page)).toBeVisible();
+    await expect(lbImage(page)).toBeHidden();
+    await expect(lbVideo(page)).toHaveAttribute('src', 'assets/video-1.mp4');
+    // Chromium из поставки Playwright не содержит H.264 — реальное воспроизведение
+    // проверяется только в Google Chrome (PW_CHANNEL=chrome) или человеком (HR-VIDEO-1).
+    const h264 = await page.evaluate(() => document.createElement('video').canPlayType('video/mp4; codecs="avc1.42E01E"'));
+    if (h264) {
+      await expect.poll(() => lbVideo(page).evaluate((v: HTMLVideoElement) => v.readyState), { timeout: 10_000 }).toBeGreaterThan(0);
+    } else {
+      test.info().annotations.push({ type: 'human-check', description: 'Воспроизведение H.264 не проверено: браузер без кодека. См. HR-VIDEO-1.' });
+    }
+    await page.keyboard.press('Escape');
+    await expectLightboxClosed(page);
+    const state = await lbVideo(page).evaluate((v: HTMLVideoElement) => ({ paused: v.paused, src: v.getAttribute('src') }));
+    expect(state).toEqual({ paused: true, src: null });
+  });
+
+  test('после видео картинка открывается без видео на фоне', async ({ page }) => {
+    await openSite(page);
+    await page.locator('[data-video-src="assets/video-2.mp4"]').click();
+    await page.keyboard.press('Escape');
+    await page.locator(firstHandmade).click();
+    await expect(lbImage(page)).toBeVisible();
+    await expect(lbVideo(page)).toBeHidden();
+  });
+});
+
+test.describe('Лайтбокс: раскадровки', () => {
+  const sheets = [
+    { idx: 0, name: 'Книжный магазин', total: 15, prefix: 'storyboard1' },
+    { idx: 1, name: 'Мушкетёры', total: 22, prefix: 'storyboard2' },
+  ];
+
+  for (const s of sheets) {
+    test(`«${s.name}»: ${s.total} кадров, счётчик и листание`, async ({ page }) => {
+      await openSite(page);
+      const frames = page.locator('.contact-sheet').nth(s.idx).locator('.gallery-btn');
+      await expect(frames).toHaveCount(s.total);
+      await frames.nth(2).scrollIntoViewIfNeeded();
+      await frames.nth(2).click();
+      await expect(counter(page)).toHaveText(`Кадр 3 из ${s.total}`);
+      await expect(lbImage(page)).toHaveAttribute('src', new RegExp(`${s.prefix}-frame-03\\.jpg$`));
+      await page.locator('#lightbox-next').click();
+      await expect(counter(page)).toHaveText(`Кадр 4 из ${s.total}`);
+      await page.keyboard.press('ArrowLeft');
+      await page.keyboard.press('ArrowLeft');
+      await expect(counter(page)).toHaveText(`Кадр 2 из ${s.total}`);
+      // клик по стрелке не должен закрывать лайтбокс (stopPropagation)
+      await expect(overlay(page)).toBeVisible();
+    });
+  }
+
+  test('границы: на первом кадре «назад» ничего не делает, на последнем — «вперёд»', async ({ page }) => {
+    await openSite(page);
+    const frames = page.locator('.contact-sheet').first().locator('.gallery-btn');
+    await frames.first().click();
+    await page.locator('#lightbox-prev').click();
+    await expect(counter(page)).toHaveText('Кадр 1 из 15');
+    await page.keyboard.press('Escape');
+    await frames.last().click();
+    await page.keyboard.press('ArrowRight');
+    await expect(counter(page)).toHaveText('Кадр 15 из 15');
+  });
+
+  test('раскадровки не смешиваются между собой', async ({ page }) => {
+    await openSite(page);
+    await page.locator('.contact-sheet').nth(1).locator('.gallery-btn').last().click();
+    await expect(counter(page)).toHaveText('Кадр 22 из 22');
+    await expect(lbImage(page)).toHaveAttribute('src', /storyboard2-frame-22\.jpg$/);
+  });
+
+  test('после закрытия раскадровки обычная картинка открывается без стрелок', async ({ page }) => {
+    await openSite(page);
+    await page.locator('.contact-sheet').first().locator('.gallery-btn').first().click();
+    await page.keyboard.press('Escape');
+    await page.locator(firstHandmade).click();
+    await expect(counter(page)).toBeHidden();
+    await expect(page.locator('#lightbox-next')).toBeHidden();
+  });
+
+  test('стрелки клавиатуры не работают, когда лайтбокс закрыт', async ({ page }) => {
+    await openSite(page);
+    await page.keyboard.press('ArrowRight');
+    await expectLightboxClosed(page);
+  });
+});

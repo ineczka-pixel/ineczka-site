@@ -1,0 +1,7 @@
+node_modules/
+test-results/
+playwright-report/
+review/screenshots/
+review/audit.json
+review/index.html
+.DS_Store

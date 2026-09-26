@@ -1,0 +1,23 @@
+{
+  "name": "ineczka-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ineczka — AI-CREATOR и Handmade: одностраничный статический сайт-портфолио",
+  "scripts": {
+    "serve": "node scripts/serve.mjs",
+    "test": "PW_JSON=test-results/e2e.json playwright test --project=e2e-desktop --project=e2e-mobile",
+    "test:e2e": "PW_JSON=test-results/e2e.json playwright test --project=e2e-desktop --project=e2e-mobile",
+    "test:visual": "playwright test --project=visual",
+    "test:visual:update": "playwright test --project=visual --update-snapshots",
+    "test:audit": "playwright test --project=audit",
+    "review:capture": "playwright test --project=review",
+    "review:build": "node scripts/build-review.mjs",
+    "review": "npm run review:capture && npm run review:build",
+    "verify": "bash scripts/verify.sh",
+    "report": "playwright show-report test-results/html"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "1.56.1"
+  }
+}
