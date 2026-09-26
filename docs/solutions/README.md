@@ -8,3 +8,5 @@
 | [position: sticky не работает внутри overflow: hidden](2026-09-26-sticky-header-overflow.md) | css, header, layout |
 | [Chromium из Playwright не играет H.264](2026-09-26-playwright-chromium-no-h264.md) | video, testing |
 | [Google Fonts делают тесты медленными и нестабильными](2026-09-26-fonts-in-tests.md) | fonts, testing, visual |
+| [Телефонная версия при inline-стилях, кладка, угловые кляксы](2026-09-26-responsive-with-inline-styles.md) | css, mobile, gallery, splash |
+| Абсолютные адреса в og:image/og:url — см. [page-structure](../features/page-structure.md) | seo, share |

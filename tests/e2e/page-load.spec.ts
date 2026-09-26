@@ -57,4 +57,21 @@ test.describe('Загрузка страницы', () => {
       expect(r.headers()['content-type']).toContain('video/mp4');
     }
   });
+
+  test('превью ссылки для мессенджеров: логотип и описание (HR-SHARE-1)', async ({ page, request }) => {
+    await openSite(page);
+    const meta = (sel: string) => page.locator(sel).getAttribute('content');
+    const description = 'AI-CREATOR: иллюстрации, сториборды и сериалы на их основе, AI-аватары, визуалы и айдентика для брендов. Handmade: картины из CD-дисков, где свет становится искусством.';
+    expect(await meta('meta[name="description"]')).toBe(description);
+    expect(await meta('meta[property="og:description"]')).toBe(description);
+    expect(await meta('meta[property="og:title"]')).toBe('Ineczka — AI-CREATOR и Handmade');
+    expect(await meta('meta[property="og:type"]')).toBe('website');
+    expect(await meta('meta[name="twitter:card"]')).toBe('summary_large_image');
+    const img = (await meta('meta[property="og:image"]'))!;
+    expect(img, 'мессенджерам нужен абсолютный адрес').toMatch(/^https:\/\/.+\/assets\/og-image\.jpg$/);
+    expect(await meta('meta[property="og:url"]')).toBe(img.replace('assets/og-image.jpg', ''));
+    expect((await request.get('assets/og-image.jpg')).status()).toBe(200);
+    expect(await meta('meta[property="og:image:width"]')).toBe('1200');
+    expect(await meta('meta[property="og:image:height"]')).toBe('630');
+  });
 });

@@ -4,6 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ineczka — AI-CREATOR и Handmade</title>
+<meta name="description" content="AI-CREATOR: иллюстрации, сториборды и сериалы на их основе, AI-аватары, визуалы и айдентика для брендов. Handmade: картины из CD-дисков, где свет становится искусством.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ineczka-pixel.github.io/ineczka-site/">
+<meta property="og:title" content="Ineczka — AI-CREATOR и Handmade">
+<meta property="og:description" content="AI-CREATOR: иллюстрации, сториборды и сериалы на их основе, AI-аватары, визуалы и айдентика для брендов. Handmade: картины из CD-дисков, где свет становится искусством.">
+<meta property="og:image" content="https://ineczka-pixel.github.io/ineczka-site/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap');
@@ -32,6 +41,15 @@
   .gallery-btn img { transition: transform 0.3s ease; }
   .gallery-btn:hover img { transform: scale(1.06); }
   .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+  .hero-gap, .hero-space { display: none; }
+  .masonry > .gallery-btn { break-inside: avoid; margin: 0 0 16px; }
+  @media (max-width: 640px) {
+    .hero-indent { display: none; }
+    .hero-space { display: inline; }
+    .hero-gap { display: block; height: 1em; }
+    .services-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    .services-grid > div { padding: 16px !important; }
+  }
 </style>
 </head>
 <body>
@@ -55,11 +73,11 @@
   <!-- HERO -->
   <section id="top" style="position: relative; overflow: hidden; background-color: #ffffff">
     <div class="deco-purple-splash" style="position: absolute; top: 2px; right: -52px; width: 480px; height: 380px; opacity: 0.9; transform: rotate(180deg)"></div>
-    <div class="deco-olive-splash" style="position: absolute; left: -104px; width: 420px; height: 340px; opacity: 0.65; transform: rotate(180deg); bottom: -20px;"></div>
+    <div class="deco-olive-splash" style="position: absolute; left: 0; width: 420px; height: 209px; opacity: 0.65; transform: rotate(180deg); bottom: 0;"></div>
     <div style="position: relative; max-width: 1180px; margin: 0 auto; padding: 120px 24px 110px; text-align: center;">
       <img src="assets/logo.jpg" alt="Ineczka" style="width: 20vw; max-width: 320px; min-width: 140px; height: auto; display: block; margin: 0 auto 28px;">
       <h1 style="margin: 0 0 20px; font-size: 50px; font-weight: 800; color: #768330; line-height: 1.25; font-family: Manrope, sans-serif"><span style="font-weight: normal">Иллюстрация, сторителлинг <br>и рукотворное искусство<br>в одних руках</span></h1>
-      <p style="margin: 0 auto 44px; max-width: 660px; font-size: 18px; line-height: 1.6; color: #29292b; text-align: start">AI-CREATOR: иллюстрации, сториборды и сериалы на их основе,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AI-аватары, визуалы и айдентика для брендов.<br>Handmade:&nbsp; &nbsp; &nbsp;картины из CD-дисков, где свет становится искусством.</p>
+      <p style="margin: 0 auto 44px; max-width: 660px; font-size: 18px; line-height: 1.6; color: #29292b; text-align: start">AI-CREATOR: иллюстрации, сториборды и сериалы на их основе,<br><span class="hero-indent">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>AI-аватары, визуалы и айдентика для брендов.<br><span class="hero-gap"></span>Handmade:<span class="hero-indent">&nbsp; &nbsp; &nbsp;</span><span class="hero-space">&nbsp;</span>картины из CD-дисков, где свет становится искусством.</p>
       <div style="display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;"><a href="#ai-creator" class="btn-purple" style="background: rgb(120, 33, 130); color: rgb(255, 255, 255); padding: 16px 32px; border-radius: 8px; font-weight: 700; font-size: 15px">AI-CREATOR</a>
         <a href="#handmade" class="btn-blue" style="background: rgb(70, 80, 158); color: rgb(255, 255, 255); padding: 16px 32px; border-radius: 8px; font-weight: 700; font-size: 15px">Handmade</a>
       </div>
@@ -76,7 +94,7 @@
         <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #4A4A4D;">Художник и AI-креатор: иллюстрации, сториборды и сериалы на их основе в разных форматах для соцсетей и для широкого экрана, AI-аватары и реалистичные визуалы для брендов, экспертов и артистов. Без студии и долгих смен — с результатом, который выглядит как настоящая съёмка или ручная работа.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: auto; grid-auto-flow: dense; gap: 16px; margin-bottom: 48px;">
+      <div class="services-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: auto; grid-auto-flow: dense; gap: 16px; margin-bottom: 48px;">
 
         <div style="grid-column: span 2; grid-row: span 2; border-radius: 18px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; background-color: #768330">
           <div>
@@ -466,26 +484,26 @@
         <p style="margin: 0; font-size: 16px; line-height: 1.75; color: #4A4A4D;">Каждая работа — аппликация из вырезанных фрагментов CD-дисков, где голографические блики передают то, что не под силу краске: блеск металла, перламутр крыльев, отражения воды на солнце. Точная графика и хрупкий, «невозможный» материал вместе создают ощущение, будто смотришь в другой, фантастический мир — готовый арт-объект для дома или подарок, который не спутать ни с чем.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px;">
+      <div class="masonry" style="columns: 4 220px; column-gap: 16px; margin-bottom: 4px;">
         <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Мотоцикл — картина из CD-дисков">
           <img src="assets/handmade-1-motorcycle.jpg" alt="Мотоцикл — картина из CD-дисков" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         </button>
-        <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Цветок — картина из CD-дисков">
+        <button type="button" class="gallery-btn" style="aspect-ratio: 405/600; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Цветок — картина из CD-дисков">
           <img src="assets/handmade-2-flower.jpg" alt="Цветок — картина из CD-дисков" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         </button>
         <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Волны — картина из CD-дисков">
           <img src="assets/handmade-3-waves.jpg" alt="Волны — картина из CD-дисков" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         </button>
-        <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Орхидея — картина из CD-дисков">
+        <button type="button" class="gallery-btn" style="aspect-ratio: 405/600; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Орхидея — картина из CD-дисков">
           <img src="assets/handmade-4-orchid.jpg" alt="Орхидея — картина из CD-дисков" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         </button>
-        <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Дракон — картина из CD-дисков">
+        <button type="button" class="gallery-btn" style="aspect-ratio: 3/4; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Дракон — картина из CD-дисков">
           <img src="assets/handmade-5-dragon.jpg" alt="Дракон — картина из CD-дисков" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         </button>
         <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Иероглифы — картина из CD-дисков">
           <img src="assets/handmade-6-hieroglyphs.jpg" alt="Иероглифы — картина из CD-дисков" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         </button>
-        <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Бабочки — картина из CD-дисков">
+        <button type="button" class="gallery-btn" style="aspect-ratio: 405/600; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Бабочки — картина из CD-дисков">
           <img src="assets/handmade-7-butterflies.jpg" alt="Бабочки — картина из CD-дисков" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         </button>
         <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Замок и корабль — картина из CD-дисков">
@@ -521,8 +539,8 @@
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 44px;">
         <a href="tel:+375297202785" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">+375 29 720-27-85</a>
         <a href="https://wa.me/375297202785" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">WhatsApp</a>
-        <a href="https://t.me/ineczka" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">Telegram</a>
-        <a href="https://instagram.com/ineczka" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">Instagram</a>
+        <a href="https://t.me/+375297202785" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">Telegram</a>
+        <a href="https://instagram.com/ine4ka_viv" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">Instagram</a>
       </div>
 
       <div style="border-top: 1px solid #3E3E41; padding-top: 28px; font-size: 13px; color: #8C8C90;">© Ineczka — AI-CREATOR &amp; Handmade, 2026</div>
@@ -658,6 +676,23 @@
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') prevFrame();
     if (e.key === 'ArrowRight') nextFrame();
+  });
+
+  // Свайп пальцем по раскадровке: влево — следующий кадр, вправо — предыдущий
+  var touchStart = null;
+  var lightboxOverlay = document.getElementById('lightbox-overlay');
+  lightboxOverlay.addEventListener('touchstart', function (e) {
+    var t = e.changedTouches[0];
+    touchStart = { x: t.clientX, y: t.clientY };
+  }, { passive: true });
+  lightboxOverlay.addEventListener('touchend', function (e) {
+    if (!touchStart || !sequence) { touchStart = null; return; }
+    var t = e.changedTouches[0];
+    var dx = t.clientX - touchStart.x;
+    var dy = t.clientY - touchStart.y;
+    touchStart = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+    if (dx < 0) nextFrame(); else prevFrame();
   });
 </script>
 </body>

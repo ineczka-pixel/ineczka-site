@@ -11,7 +11,11 @@ const VIEWPORTS = [
   { name: 'mobile', width: 390, height: 844 },
 ];
 
-test.beforeAll(() => fs.mkdirSync(OUT, { recursive: true }));
+test.beforeAll(() => {
+  fs.mkdirSync(OUT, { recursive: true });
+  // картинка превью ссылки (og:image) — показываем как есть
+  fs.copyFileSync('assets/og-image.jpg', `${OUT}/og-image.jpg`);
+});
 
 for (const vp of VIEWPORTS) {
   test(`секции — ${vp.name}`, async ({ page }) => {

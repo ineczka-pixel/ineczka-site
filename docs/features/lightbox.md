@@ -1,7 +1,7 @@
 # Лайтбокс (просмотрщик работ)
 
 **Назначение:** открыть работу/видео/кадр раскадровки на весь экран.
-**Где:** разметка `index.html` 535–542; JS 545–662.
+**Где:** разметка `index.html` 553–560; JS 563–697.
 
 ## Разметка
 `#lightbox-overlay` (fixed, `display:none`, клик по фону закрывает) → кнопка `.lightbox-close` ×, `<video id="lightbox-video">`, `<img id="lightbox-image">`, кнопки `#lightbox-prev` / `#lightbox-next`, `#lightbox-counter`.
@@ -9,12 +9,13 @@
 ## JS-функции
 | Функция | Что делает |
 |---|---|
-| `openMedia(evt)` (583) | Кнопка с `data-video-src` → видео; иначе ищет внутри `<video>` или `<img>` и показывает. Сбрасывает `sequence = null`. |
-| `openStoryboardFrame(evt)` (623) | Собирает все `.gallery-btn` ближайшего `.contact-sheet`, запоминает `sequence = {items, index}` |
-| `render()` (548) | Если есть `sequence` — показывает текущий кадр, стрелки и «Кадр N из M»; иначе прячет стрелки/счётчик |
-| `prevFrame` / `nextFrame` (639/647) | Листают в пределах последовательности (без зацикливания), `stopPropagation`, чтобы не закрыть оверлей |
-| `closeLightbox()` (573) | Прячет оверлей, останавливает видео и снимает `src`, сбрасывает `sequence` |
-| `keydown` (655) | Только при открытом оверлее: Esc — закрыть, ← → — листать |
+| `openMedia(evt)` (601) | Кнопка с `data-video-src` → видео; иначе ищет внутри `<video>` или `<img>` и показывает. Сбрасывает `sequence = null`. |
+| `openStoryboardFrame(evt)` (641) | Собирает все `.gallery-btn` ближайшего `.contact-sheet`, запоминает `sequence = {items, index}` |
+| `render()` (566) | Если есть `sequence` — показывает текущий кадр, стрелки и «Кадр N из M»; иначе прячет стрелки/счётчик |
+| `prevFrame` / `nextFrame` (657/665) | Листают в пределах последовательности (без зацикливания), `stopPropagation`, чтобы не закрыть оверлей |
+| `closeLightbox()` (591) | Прячет оверлей, останавливает видео и снимает `src`, сбрасывает `sequence` |
+| `keydown` (673) | Только при открытом оверлее: Esc — закрыть, ← → — листать |
+| `touchstart`/`touchend` на оверлее (681–695) | Свайп по раскадровке: палец влево — следующий кадр, вправо — предыдущий. Срабатывает при сдвиге ≥ 40px и если движение больше горизонтальное, чем вертикальное |
 
 Глобальное состояние одно: `var sequence`. Все обработчики — inline `onclick`, поэтому функции должны оставаться глобальными.
 
@@ -23,8 +24,11 @@
 - Не забудь: клик по картинке всплывает до оверлея и закрывает его (сейчас так задумано).
 
 ## Тесты
-`tests/e2e/lightbox.spec.ts` (15 сценариев × desktop/mobile), `accessibility.spec.ts` (Enter на кнопке открывает).
+`tests/e2e/lightbox.spec.ts` (16 сценариев, включая свайп × desktop/mobile), `accessibility.spec.ts` (Enter на кнопке открывает).
 Аудит `A11Y-LIGHTBOX`. Ручные HR-IMAGES-3, HR-VIDEO-1.
 
 ## Известные проблемы
-[KI-008](../known-issues.md#ki-008) (фокус и role=dialog), [KI-009](../known-issues.md#ki-009) (нет свайпа).
+[KI-008](../known-issues.md#ki-008) (фокус и role=dialog), [KI-009](../known-issues.md#ki-009) — свайп добавлен.
+
+## История
+- 2026-09-26 — правки по первой ручной проверке ([план](../plans/completed/2026-09-26-review-round-1.md)): свайп (HR-IMAGES-3).

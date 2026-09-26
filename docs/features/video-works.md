@@ -1,7 +1,7 @@
 # Видео-работы
 
 **Назначение:** показать нейрофотосессии в движении.
-**Где:** `index.html` 302–323 (в `#portfolio-avatars`). JS — ветка `data-video-src` в `openMedia` (590–599).
+**Где:** `index.html` 320–341 (в `#portfolio-avatars`). JS — ветка `data-video-src` в `openMedia` (608–617).
 
 ## Как устроено
 - `button.gallery-btn` c `data-video-src="assets/video-N.mp4"`, превью `<img src="assets/video-N-poster.jpg">` 9:16 и иконкой ▶ (SVG).
@@ -10,7 +10,7 @@
 
 ## Как добавить видео
 1. `assets/video-3.mp4` (H.264, ≤ 5–7 МБ, 9:16) + постер `assets/video-3-poster.jpg`.
-2. Скопировать блок 313–323, поменять `data-video-src`, `data-video-alt`, `src` постера, `aria-label`, подпись.
+2. Скопировать блок 331–341, поменять `data-video-src`, `data-video-alt`, `src` постера, `aria-label`, подпись.
 
 ## Тесты
 - `page-load.spec.ts`: файлы из `data-video-src` существуют и отдаются как `video/mp4`.

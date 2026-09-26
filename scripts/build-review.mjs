@@ -51,7 +51,7 @@ const shot = (name) => {
 const shotLabel = (n) => n.replace(/-(desktop|tablet|mobile)$/, (_, v) => ` · ${{ desktop: 'компьютер', tablet: 'планшет', mobile: 'телефон' }[v]}`)
   .replace(/^top/, 'Первый экран').replace(/^ai-creator/, 'AI-CREATOR').replace(/^handmade/, 'Handmade')
   .replace(/^about/, 'Обо мне').replace(/^contacts/, 'Контакты').replace(/^full/, 'Вся страница')
-  .replace(/^lightbox-image/, 'Просмотр картины').replace(/^lightbox-storyboard/, 'Просмотр раскадровки');
+  .replace(/^lightbox-image/, 'Просмотр картины').replace(/^lightbox-storyboard/, 'Просмотр раскадровки').replace(/^og-image/, 'Картинка превью ссылки');
 
 const sevLabel = { high: 'Важно', medium: 'Средне', low: 'Мелочь', info: 'Инфо' };
 const uniqueTitles = (arr) => [...new Map(arr.map((t) => [t.title, t])).values()];

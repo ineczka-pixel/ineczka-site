@@ -1,7 +1,7 @@
 # Портфолио по направлениям (горизонтальные ленты)
 
 **Назначение:** примеры работ по каждой услуге.
-**Где:** `index.html` 141–447. Блоки: `#portfolio-illustration` (144), `#portfolio-avatars` (299), `#portfolio-brands` (339), `#portfolio-video` (375), `#portfolio-artists` (399), `#portfolio-design` (423).
+**Где:** `index.html` 159–465. Блоки: `#portfolio-illustration` (162), `#portfolio-avatars` (317), `#portfolio-brands` (357), `#portfolio-video` (393), `#portfolio-artists` (417), `#portfolio-design` (441).
 
 ## Как устроено
 - Блок: `div#portfolio-xxx` с `scroll-margin-top: 90px` (чтобы якорь не прятался под шапкой) → `h4` → `.scroll-row` (flex, горизонтальная прокрутка).
@@ -11,7 +11,7 @@
 
 ## Как добавить работу
 1. Положить файл в `assets/` ([правила именования](assets.md)).
-2. Скопировать `.scroll-item` (например, 342–347), заменить `src`, `alt`, `aria-label`, подпись.
+2. Скопировать `.scroll-item` (например, 360–347), заменить `src`, `alt`, `aria-label`, подпись.
 3. Заменить заглушку — просто поменять `src`/`alt`/подпись у существующего элемента.
 4. `npm run verify` → проверить скриншот в `review/index.html`.
 

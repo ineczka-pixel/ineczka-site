@@ -1,7 +1,7 @@
 # Шапка и навигация
 
 **Назначение:** логотип + меню к четырём разделам, всегда под рукой.
-**Где:** `index.html` 40–53; CSS `.nav-link:hover` (13).
+**Где:** `index.html` 58–71; CSS `.nav-link:hover` (22).
 
 ## Как устроено
 - `<header style="position: sticky; top:0; z-index:50">` — задумана липкой, но из-за обёртки с `overflow-x:hidden` **не прилипает** ([KI-001](../known-issues.md#ki-001)).

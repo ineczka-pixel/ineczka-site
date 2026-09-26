@@ -154,6 +154,27 @@ test.describe('Лайтбокс: раскадровки', () => {
     await expect(page.locator('#lightbox-next')).toBeHidden();
   });
 
+  test('свайп пальцем листает раскадровку (HR-IMAGES-3)', async ({ page }) => {
+    await openSite(page);
+    await page.locator('.contact-sheet').first().locator('.gallery-btn').nth(4).click();
+    await expect(counter(page)).toHaveText('Кадр 5 из 15');
+    const swipe = (dx: number, dy = 0) => page.evaluate(([dx, dy]) => {
+      const el = document.getElementById('lightbox-image')!;
+      const t = (x: number, y: number) => new Touch({ identifier: 1, target: el, clientX: x, clientY: y });
+      el.dispatchEvent(new TouchEvent('touchstart', { bubbles: true, touches: [t(200, 300)], changedTouches: [t(200, 300)] }));
+      el.dispatchEvent(new TouchEvent('touchend', { bubbles: true, touches: [], changedTouches: [t(200 + dx, 300 + dy)] }));
+    }, [dx, dy]);
+    await swipe(-120); // палец влево → следующий кадр
+    await expect(counter(page)).toHaveText('Кадр 6 из 15');
+    await swipe(120); // палец вправо → предыдущий
+    await swipe(120);
+    await expect(counter(page)).toHaveText('Кадр 4 из 15');
+    await swipe(15); // короткое движение — не свайп
+    await swipe(-30, 200); // вертикальное движение — не свайп
+    await expect(counter(page)).toHaveText('Кадр 4 из 15');
+    await expect(overlay(page)).toBeVisible();
+  });
+
   test('стрелки клавиатуры не работают, когда лайтбокс закрыт', async ({ page }) => {
     await openSite(page);
     await page.keyboard.press('ArrowRight');

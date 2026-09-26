@@ -3,6 +3,7 @@
 | Группа | Файлы | Где используются |
 |---|---|---|
 | Логотипы | `logo.jpg`, `logo-white.png` | шапка, герой; контакты |
+| Превью ссылки | `og-image.jpg` (1200×630, логотип на белом) | `og:image` |
 | Кляксы | `splash-purple.png`, `splash-olive.png` | CSS-классы `.deco-*` |
 | Заглушка | `placeholder.png` | 20 элементов портфолио |
 | Раскадровки | `storyboard1-frame-01..15.jpg`, `storyboard2-frame-01..22.jpg` | [storyboards](storyboards.md) |

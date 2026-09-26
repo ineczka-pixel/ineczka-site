@@ -1,12 +1,13 @@
 # Декоративные кляксы
 
 **Назначение:** фирменные акварельные пятна — фиолетовое и оливковое.
-**Где:** CSS-классы `.deco-purple-splash`, `.deco-olive-splash` (`index.html` 21–22); используются в `#top` (57–58), `#ai-creator` (71), `#contacts` (514–515).
+**Где:** CSS-классы `.deco-purple-splash`, `.deco-olive-splash` (`index.html` 30–31); используются в `#top` (75–76), `#ai-creator` (89), `#contacts` (532–533).
 
 ## Как устроено
 Пустой `div` с классом (фон `assets/splash-*.png`, `background-size: contain`) + inline: `position:absolute`, размеры, `opacity`, `transform: rotate(...)`. Родительская секция имеет `position:relative; overflow:hidden`, поэтому пятна обрезаются по краю секции.
 
 ## Как изменить
+Картинки клякс — «угловые» (мазок заполняет угол PNG 675×336). Чтобы клякса стояла ровно в углу, делай блок в пропорциях картинки (ширина/высота ≈ 2.01) — тогда `background-size: contain` не оставляет пустых полей, и `left:0; bottom:0` ставит мазок точно в угол.
 Скопировать существующий `div`, поменять `top/left/right/bottom`, `width/height`, `opacity`, угол. Контент секции должен быть в `position: relative` контейнере, чтобы быть над пятном.
 
 ## Тесты
