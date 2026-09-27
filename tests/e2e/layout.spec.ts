@@ -82,8 +82,10 @@ test.describe('Handmade: превью', () => {
         return { src: i.getAttribute('src'), natural: i.naturalWidth / i.naturalHeight, box: r.width / r.height };
       }));
     const vertical = imgs.filter((i) => i.natural < 1);
-    expect(vertical.length).toBe(4);
+    expect(vertical.length).toBe(7);
     for (const i of vertical) expect(Math.abs(i.box - i.natural), i.src!).toBeLessThan(0.02);
+    // горизонтальные с нестандартными пропорциями (не 4:3) тоже показываются целиком
+    for (const i of imgs.filter((x) => x.src!.includes('handmade-12'))) expect(Math.abs(i.box - i.natural)).toBeLessThan(0.02);
   });
 
   test('на компьютере 4 колонки на всю ширину, без пустых', async ({ page }) => {
