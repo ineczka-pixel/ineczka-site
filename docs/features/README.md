@@ -10,8 +10,8 @@
 | [hero](hero.md) | `navigation.spec.ts`, visual `top-*` | HR-VISUAL-1, HR-TEXT-2 |
 | [decorative-splashes](decorative-splashes.md) | `page-load.spec.ts`, visual | HR-VISUAL-3 |
 | [ai-services](ai-services.md) | `navigation.spec.ts`, audit LAYOUT-* | HR-VISUAL-2 |
-| [portfolio-galleries](portfolio-galleries.md) | `lightbox.spec.ts`, audit CONTENT-PLACEHOLDERS | HR-IMAGES-2 |
-| [storyboards](storyboards.md) | `lightbox.spec.ts` (раскадровки) | HR-IMAGES-3 |
+| [portfolio-galleries](portfolio-galleries.md) | `content.spec.ts`, `lightbox.spec.ts`, audit CONTENT-PLACEHOLDERS | HR-IMAGES-2 |
+| [storyboards](storyboards.md) | `lightbox.spec.ts` (раскадровки), `content.spec.ts` | HR-IMAGES-3 |
 | [video-works](video-works.md) | `lightbox.spec.ts` (видео), `page-load.spec.ts` | HR-VIDEO-1 |
 | [handmade](handmade.md) | `lightbox.spec.ts` | HR-IMAGES-1 |
 | [cta-blocks](cta-blocks.md) | `navigation.spec.ts` | — |
