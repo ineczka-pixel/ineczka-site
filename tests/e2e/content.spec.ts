@@ -24,3 +24,24 @@ test.describe('Иллюстрация и сторителлинг', () => {
     await expect(page.locator('#portfolio-illustration')).not.toContainText('Раскадровка');
   });
 });
+
+test.describe('AI-аватары и образы / Для брендов', () => {
+  test('AI-аватары: 5 мест — 2 видео, AI-аватары для соцсетей, Виртуальный персонаж бренда, AI-аватары', async ({ page }) => {
+    await openSite(page);
+    const captions = await page.locator('#portfolio-avatars .scroll-item > div').allInnerTexts();
+    expect(captions.map((c) => c.trim())).toEqual([
+      'Нейрофотосессии (видео)', 'Нейрофотосессии (видео)',
+      'AI-аватары для соцсетей', 'Виртуальный персонаж бренда', 'AI-аватары',
+    ]);
+  });
+
+  test('«Логотипы и брендбуки» вместо «Визуалы для сайта/лендинга», «Виртуальный персонаж бренда» вместо имидж-стайлинга', async ({ page }) => {
+    await openSite(page);
+    await expect(page.locator('#portfolio-brands .scroll-item').last()).toContainText('Логотипы и брендбуки');
+    await expect(page.locator('#ai-creator a.service-link', { hasText: 'Логотипы и брендбуки' })).toHaveAttribute('href', '#portfolio-brands');
+    await expect(page.locator('#ai-creator a.service-link', { hasText: 'Виртуальный персонаж бренда' })).toHaveAttribute('href', '#portfolio-avatars');
+    await expect(page.locator('#ai-creator')).not.toContainText('Визуалы для сайта');
+    await expect(page.locator('#ai-creator')).not.toContainText('имидж-стайлинг');
+  });
+});
+
