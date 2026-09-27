@@ -1,10 +1,10 @@
 # Раскадровки (contact sheet)
 
 **Назначение:** показать сториборд целиком и дать пролистать кадры по порядку.
-**Где:** `index.html` 193–243 («Книжный магазин», 15 кадров), 245–316 («Мушкетёры», 22 кадра). JS — `openStoryboardFrame`, `prevFrame`, `nextFrame`, `render` ([lightbox](lightbox.md)).
+**Где:** `index.html` 193–243 («Книжный магазин», 15 кадров), 245–316 («Мушкетёры», 22 кадра). JS — `openSequence`, `prevFrame`, `nextFrame`, `render` ([lightbox](lightbox.md)).
 
 ## Как устроено
-- Контейнер `div.contact-sheet` (сетка `auto-fit, minmax(90px, 1fr)`), внутри `button.gallery-btn` 16:9 с `onclick="openStoryboardFrame(event)"`.
+- Контейнер `div.contact-sheet` (сетка `auto-fit, minmax(90px, 1fr)`), внутри `button.gallery-btn` 16:9 с `onclick="openSequence(event)"`.
 - При клике JS собирает все кнопки **этого** `.contact-sheet` в последовательность → лайтбокс со стрелками ‹ ›, счётчиком «Кадр N из M», клавишами ← → и свайпом пальцем.
 - Файлы: `assets/storyboard{номер}-frame-{NN}.jpg` (двузначный номер кадра).
 - Миниатюры ~90px, но грузятся полные файлы 130–330 КБ ([KI-004](../known-issues.md#ki-004)).

@@ -3,6 +3,8 @@ import { test, expect } from '@playwright/test';
 import { openSite, overlay, lbImage, lbVideo, counter, expectLightboxClosed } from '../helpers/site';
 
 const firstHandmade = '#handmade .gallery-btn >> nth=0';
+// одиночная работа (без листания) — первое превью в «Для брендов и бизнеса»
+const singleWork = '#portfolio-brands .gallery-btn >> nth=0';
 
 test.describe('Лайтбокс: изображения', () => {
   test('по умолчанию закрыт', async ({ page }) => {
@@ -18,7 +20,13 @@ test.describe('Лайтбокс: изображения', () => {
     await expect(lbImage(page)).toHaveAttribute('src', /handmade-1-motorcycle\.jpg$/);
     await expect(lbImage(page)).toHaveAttribute('alt', 'Мотоцикл — картина из CD-дисков');
     await expect(lbVideo(page)).toBeHidden();
-    // одиночная работа — без стрелок и счётчика
+  });
+
+  test('одиночная работа портфолио открывается без стрелок и счётчика', async ({ page }) => {
+    await openSite(page);
+    await page.locator(singleWork).scrollIntoViewIfNeeded();
+    await page.locator(singleWork).click();
+    await expect(lbImage(page)).toBeVisible();
     await expect(page.locator('#lightbox-prev')).toBeHidden();
     await expect(page.locator('#lightbox-next')).toBeHidden();
     await expect(counter(page)).toBeHidden();
@@ -149,7 +157,8 @@ test.describe('Лайтбокс: раскадровки', () => {
     await openSite(page);
     await page.locator('.contact-sheet').first().locator('.gallery-btn').first().click();
     await page.keyboard.press('Escape');
-    await page.locator(firstHandmade).click();
+    await page.locator(singleWork).scrollIntoViewIfNeeded();
+    await page.locator(singleWork).click();
     await expect(counter(page)).toBeHidden();
     await expect(page.locator('#lightbox-next')).toBeHidden();
   });
@@ -181,3 +190,42 @@ test.describe('Лайтбокс: раскадровки', () => {
     await expectLightboxClosed(page);
   });
 });
+
+test.describe('Лайтбокс: картины из CD (Handmade)', () => {
+  test('увеличенные картины листаются стрелками, клавишами и свайпом', async ({ page }) => {
+    await openSite(page);
+    const works = page.locator('#handmade .gallery-btn');
+    const total = await works.count();
+    await works.nth(1).scrollIntoViewIfNeeded();
+    await works.nth(1).click();
+    await expect(counter(page)).toHaveText(`Картина 2 из ${total}`);
+    const src2 = await works.nth(2).locator('img').getAttribute('src');
+    await page.locator('#lightbox-next').click();
+    await expect(counter(page)).toHaveText(`Картина 3 из ${total}`);
+    await expect(lbImage(page)).toHaveAttribute('src', new RegExp(src2!.replace('.', '\\.') + '$'));
+    await page.keyboard.press('ArrowLeft');
+    await expect(counter(page)).toHaveText(`Картина 2 из ${total}`);
+    await page.evaluate(() => {
+      const el = document.getElementById('lightbox-image')!;
+      const t = (x: number) => new Touch({ identifier: 1, target: el, clientX: x, clientY: 300 });
+      el.dispatchEvent(new TouchEvent('touchstart', { bubbles: true, touches: [t(250)], changedTouches: [t(250)] }));
+      el.dispatchEvent(new TouchEvent('touchend', { bubbles: true, touches: [], changedTouches: [t(100)] }));
+    });
+    await expect(counter(page)).toHaveText(`Картина 3 из ${total}`);
+    await expect(page.locator('#lightbox-prev')).toBeVisible();
+  });
+
+  test('картины не смешиваются с раскадровками', async ({ page }) => {
+    await openSite(page);
+    const works = page.locator('#handmade .gallery-btn');
+    const total = await works.count();
+    await works.last().scrollIntoViewIfNeeded();
+    await works.last().click();
+    await page.keyboard.press('ArrowRight');
+    await expect(counter(page)).toHaveText(`Картина ${total} из ${total}`);
+    await page.keyboard.press('Escape');
+    await page.locator('.contact-sheet').first().locator('.gallery-btn').first().click();
+    await expect(counter(page)).toHaveText('Кадр 1 из 15');
+  });
+});
+

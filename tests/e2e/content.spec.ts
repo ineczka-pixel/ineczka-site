@@ -45,13 +45,13 @@ test.describe('AI-аватары и образы / Для брендов', () =>
   });
 });
 
-test('Handmade: 12 картин, новые — сакура, зелёный и синий драконы, бабочка и рыба', async ({ page }) => {
+test('Handmade: 12 картин, новые — сакура, зелёный и синий драконы, бабочка-поцелуй', async ({ page }) => {
   await openSite(page);
   const alts = await page.locator('#handmade .gallery-btn img').evaluateAll((els) => els.map((e) => e.getAttribute('alt')));
   expect(alts.length).toBe(12);
   expect(alts.slice(8)).toEqual([
     'Сакура — картина из CD-дисков', 'Зелёный дракон — картина из CD-дисков',
-    'Синий дракон — картина из CD-дисков', 'Бабочка и рыба — картина из CD-дисков',
+    'Синий дракон — картина из CD-дисков', 'Бабочка-поцелуй — картина из CD-дисков',
   ]);
 });
 

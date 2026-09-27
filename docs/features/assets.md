@@ -8,7 +8,7 @@
 | Заглушка | `placeholder.png` | 20 элементов портфолио |
 | Раскадровки | `storyboard1-frame-01..15.jpg`, `storyboard2-frame-01..22.jpg` | [storyboards](storyboards.md) |
 | Видео | `video-1.mp4` (6.6 МБ), `video-2.mp4` (4.6 МБ), `video-N-poster.jpg` | [video-works](video-works.md) |
-| Handmade | `handmade-1-motorcycle.jpg … handmade-12-butterfly-fish.jpg` | [handmade](handmade.md) |
+| Handmade | `handmade-1-motorcycle.jpg … handmade-12-butterfly-kiss.jpg` | [handmade](handmade.md) |
 
 ## Правила
 - Имена: латиница, строчные, через дефис, с порядковым номером: `<раздел>-<N>-<тема>.jpg`, кадры — `storyboardN-frame-NN.jpg`.
