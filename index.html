@@ -37,6 +37,7 @@
   .scroll-row::-webkit-scrollbar { height: 6px; }
   .scroll-row::-webkit-scrollbar-thumb { background: #ECECEE; border-radius: 3px; }
   .scroll-item { flex: 0 0 190px; }
+  .scroll-item-wide { flex-basis: 340px; }
   .gallery-btn { border: none; padding: 0; margin: 0; background: none; cursor: pointer; display: block; width: 100%; border-radius: 12px; overflow: hidden; }
   .gallery-btn img { transition: transform 0.3s ease; }
   .gallery-btn:hover img { transform: scale(1.06); }
@@ -49,8 +50,9 @@
     .hero-gap { display: block; height: 1em; }
     .services-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
     .services-grid > div { padding: 16px !important; }
-    .scroll-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; overflow: visible; }
+    .scroll-row { display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: dense; gap: 10px; overflow: visible; }
     .scroll-item { min-width: 0; }
+    .scroll-item-wide { grid-column: span 2; }
   }
 </style>
 </head>
@@ -165,32 +167,42 @@
           <h4 style="margin: 0 0 12px; font-size: 16px; font-weight: 700; color: #29292B;">Иллюстрация и сторителлинг</h4>
           <div class="scroll-row">
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Иллюстрация 1">
-                <img src="assets/placeholder.png" alt="Иллюстрация 1" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 1/1; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Иллюстрация — девушка в розовых очках, ретро">
+                <img src="assets/illustration-retro.webp" alt="Иллюстрация — девушка в розовых очках, ретро" style="width: 100%; height: 100%; object-fit: cover; display: block;">
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Иллюстрация</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Иллюстрация 2">
-                <img src="assets/placeholder.png" alt="Иллюстрация 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 1/1; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Иллюстрация — кукольные персонажи в свитерах">
+                <img src="assets/illustration-dolls.webp" alt="Иллюстрация — кукольные персонажи в свитерах" style="width: 100%; height: 100%; object-fit: cover; display: block;">
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Иллюстрация</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Иллюстрация 3">
-                <img src="assets/placeholder.png" alt="Иллюстрация 3" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Иллюстрация — девушка в старинной аптеке">
+                <img src="assets/illustration-apteka.webp" alt="Иллюстрация — девушка в старинной аптеке" style="width: 100%; height: 100%; object-fit: cover; display: block;">
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Иллюстрация</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Сериал — вертикальный формат">
-                <img src="assets/placeholder.png" alt="Сериал — вертикальный формат" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" data-video-src="assets/serial-vertical.mp4" data-video-alt="Сериал — вертикальный формат" onclick="openMedia(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Открыть видео: Сериал — вертикальный формат">
+                <img src="assets/serial-vertical-poster.jpg" alt="Сериал — вертикальный формат" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Сериал — вертикальный формат</div>
             </div>
-            <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Сериал — горизонтальный формат">
-                <img src="assets/placeholder.png" alt="Сериал — горизонтальный формат" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <div class="scroll-item scroll-item-wide">
+              <button type="button" class="gallery-btn" data-video-src="assets/serial-horizontal.mp4" data-video-alt="Сериал — горизонтальный формат" onclick="openMedia(event)" style="aspect-ratio: 16/9; background: #000000; position: relative; display: block;" aria-label="Открыть видео: Сериал — горизонтальный формат">
+                <img src="assets/serial-horizontal-poster.jpg" alt="Сериал — горизонтальный формат" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Сериал — горизонтальный формат</div>
             </div>
@@ -348,46 +360,48 @@
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Нейрофотосессии (видео)</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: AI-аватары для соцсетей">
-                <img src="assets/placeholder.png" alt="AI-аватары для соцсетей" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" data-video-src="assets/avatar-socseti-1.mp4" data-video-alt="AI-аватар для соцсетей — видео 1" onclick="openMedia(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Открыть видео: AI-аватар для соцсетей — видео 1">
+                <img src="assets/avatar-socseti-1-poster.jpg" alt="AI-аватар для соцсетей — видео 1" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">AI-аватары для соцсетей</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Виртуальный персонаж бренда">
-                <img src="assets/placeholder.png" alt="Виртуальный персонаж бренда" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" data-video-src="assets/avatar-socseti-2.mp4" data-video-alt="AI-аватар для соцсетей — видео 2" onclick="openMedia(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Открыть видео: AI-аватар для соцсетей — видео 2">
+                <img src="assets/avatar-socseti-2-poster.jpg" alt="AI-аватар для соцсетей — видео 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">AI-аватары для соцсетей</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/avatar-brand-character.mp4" data-video-alt="Виртуальный персонаж бренда — видео" onclick="openMedia(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Открыть видео: Виртуальный персонаж бренда — видео">
+                <img src="assets/avatar-brand-character-poster.jpg" alt="Виртуальный персонаж бренда — видео" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Виртуальный персонаж бренда</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: AI-аватары">
-                <img src="assets/placeholder.png" alt="AI-аватары" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" data-video-src="assets/avatar-kuznec.mp4" data-video-alt="AI-аватар — видео" onclick="openMedia(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Открыть видео: AI-аватар — видео">
+                <img src="assets/avatar-kuznec-poster.jpg" alt="AI-аватар — видео" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">AI-аватары</div>
-            </div>
-            <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: DJ Ineczka — визуал">
-                <img src="assets/dj-ineczka-1.webp" alt="DJ Ineczka — визуал" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-              </button>
-              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">DJ Ineczka — визуал</div>
-            </div>
-            <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: DJ Ineczka — портрет">
-                <img src="assets/dj-ineczka-2.webp" alt="DJ Ineczka — портрет" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-              </button>
-              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">DJ Ineczka — портрет</div>
-            </div>
-            <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: AI-аватары (дополнительно)">
-                <img src="assets/placeholder.png" alt="AI-аватары (дополнительно)" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-              </button>
-              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">AI-аватары (дополнительно)</div>
-            </div>
-            <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Ещё одна работа">
-                <img src="assets/placeholder.png" alt="Ещё одна работа" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-              </button>
-              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Ещё одна работа</div>
             </div>
           </div>
         </div>
@@ -396,32 +410,74 @@
           <h4 style="margin: 0 0 12px; font-size: 16px; font-weight: 700; color: #29292B;">Для брендов и бизнеса</h4>
           <div class="scroll-row">
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Предметная визуализация товара">
-                <img src="assets/placeholder.png" alt="Предметная визуализация товара" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Предметная визуализация — музыкальный центр в интерьере">
+                <img src="assets/brand-speakers.webp" alt="Предметная визуализация — музыкальный центр в интерьере" style="width: 100%; height: 100%; object-fit: cover; display: block;">
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Предметная визуализация товара</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Рекламные креативы">
-                <img src="assets/placeholder.png" alt="Рекламные креативы" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Рекламный креатив — духи Illusion">
+                <img src="assets/brand-illusion.webp" alt="Рекламный креатив — духи Illusion" style="width: 100%; height: 100%; object-fit: cover; display: block;">
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Рекламные креативы</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Упаковка и mockup">
-                <img src="assets/placeholder.png" alt="Упаковка и mockup" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Рекламный креатив — праздничное агентство «Трубадур»">
+                <img src="assets/brand-trubadur-event.webp" alt="Рекламный креатив — праздничное агентство «Трубадур»" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Рекламные креативы</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Рекламный креатив — бургер «Вкусный перекус для вашего сайта!»">
+                <img src="assets/brand-burger.webp" alt="Рекламный креатив — бургер «Вкусный перекус для вашего сайта!»" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Рекламные креативы</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Mockup — логотип Svitaly на футболке и блокноте">
+                <img src="assets/brand-svitaly-mockup.webp" alt="Mockup — логотип Svitaly на футболке и блокноте" style="width: 100%; height: 100%; object-fit: cover; display: block;">
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Упаковка и mockup</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Брендовые иллюстрации">
-                <img src="assets/placeholder.png" alt="Брендовые иллюстрации" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Упаковка — подсолнечное масло">
+                <img src="assets/brand-oil-packaging.webp" alt="Упаковка — подсолнечное масло" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Упаковка и mockup</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Брендовая иллюстрация — Ineczka AI Creator">
+                <img src="assets/brand-ineczka-ai-creator.webp" alt="Брендовая иллюстрация — Ineczka AI Creator" style="width: 100%; height: 100%; object-fit: cover; display: block;">
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Брендовые иллюстрации</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Логотипы и брендбуки">
-                <img src="assets/placeholder.png" alt="Логотипы и брендбуки" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Логотип — Svitaly photography">
+                <img src="assets/logo-svitaly.jpg" alt="Логотип — Svitaly photography" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Логотипы и брендбуки</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Брендбук Svitaly — варианты логотипа и палитра">
+                <img src="assets/logo-svitaly-variations.webp" alt="Брендбук Svitaly — варианты логотипа и палитра" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Логотипы и брендбуки</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Логотип и фирменный стиль — BUFFO">
+                <img src="assets/logo-buffo.jpg" alt="Логотип и фирменный стиль — BUFFO" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Логотипы и брендбуки</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openMedia(event)" aria-label="Открыть работу: Логотип — праздничное агентство «Трубадур»">
+                <img src="assets/logo-trubadur.jpg" alt="Логотип — праздничное агентство «Трубадур»" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Логотипы и брендбуки</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Брендбук агентства «Трубадур»">
+                <img src="assets/brandbook-trubadur.jpg" alt="Брендбук агентства «Трубадур»" style="width: 100%; height: 100%; object-fit: cover; display: block;">
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Логотипы и брендбуки</div>
             </div>
@@ -431,21 +487,36 @@
         <div id="portfolio-video" style="scroll-margin-top: 90px; margin-bottom: 30px;">
           <h4 style="margin: 0 0 12px; font-size: 16px; font-weight: 700; color: #29292B;">Видео и анимация</h4>
           <div class="scroll-row">
-            <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: AI-клипы">
-                <img src="assets/placeholder.png" alt="AI-клипы" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <div class="scroll-item scroll-item-wide">
+              <button type="button" class="gallery-btn" data-video-src="assets/video-ai-klip.mp4" data-video-alt="AI-клип" onclick="openMedia(event)" style="aspect-ratio: 16/9; background: #000000; position: relative; display: block;" aria-label="Открыть видео: AI-клип">
+                <img src="assets/video-ai-klip-poster.jpg" alt="AI-клип" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">AI-клипы</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Анимация статичных изображений">
-                <img src="assets/placeholder.png" alt="Анимация статичных изображений" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" data-video-src="assets/video-animation.mp4" data-video-alt="Анимация статичного изображения" onclick="openMedia(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Открыть видео: Анимация статичного изображения">
+                <img src="assets/video-animation-poster.jpg" alt="Анимация статичного изображения" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Анимация статичных изображений</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Контент для Reels/Shorts">
-                <img src="assets/placeholder.png" alt="Контент для Reels/Shorts" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" data-video-src="assets/video-reels.mp4" data-video-alt="Контент для Reels/Shorts" onclick="openMedia(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Открыть видео: Контент для Reels/Shorts">
+                <img src="assets/video-reels-poster.jpg" alt="Контент для Reels/Shorts" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Контент для Reels/Shorts</div>
             </div>
@@ -456,22 +527,49 @@
           <h4 style="margin: 0 0 12px; font-size: 16px; font-weight: 700; color: #29292B;">Для артистов и экспертов</h4>
           <div class="scroll-row">
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Обложки треков/альбомов">
-                <img src="assets/placeholder.png" alt="Обложки треков/альбомов" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Обложка трека — Ineczka">
+                <img src="assets/dj-ineczka-1.webp" alt="Обложка трека — Ineczka" style="width: 100%; height: 100%; object-fit: cover; display: block;">
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Обложки треков/альбомов</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Промо-визуалы для выступлений">
-                <img src="assets/placeholder.png" alt="Промо-визуалы для выступлений" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" data-video-src="assets/artist-promo.mp4" data-video-alt="Промо-визуал для выступлений — видео" onclick="openMedia(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Открыть видео: Промо-визуал для выступлений — видео">
+                <img src="assets/artist-promo-poster.jpg" alt="Промо-визуал для выступлений — видео" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Промо-визуалы для выступлений</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Персонажи и маскоты">
-                <img src="assets/placeholder.png" alt="Персонажи и маскоты" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Афиша DJ Ineczka — Минск, ноябрь 2026">
+                <img src="assets/dj-ineczka-2.webp" alt="Афиша DJ Ineczka — Минск, ноябрь 2026" style="width: 100%; height: 100%; object-fit: cover; display: block;">
               </button>
-              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Персонажи и маскоты</div>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Промо-визуалы для выступлений</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/artist-character.mp4" data-video-alt="Персонаж — видео" onclick="openMedia(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Открыть видео: Персонаж — видео">
+                <img src="assets/artist-character-poster.jpg" alt="Персонаж — видео" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Персонажи</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/artist-mascots.mp4" data-video-alt="Маскот — видео" onclick="openMedia(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Открыть видео: Маскот — видео">
+                <img src="assets/artist-mascots-poster.jpg" alt="Маскот — видео" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Маскоты</div>
             </div>
           </div>
         </div>
@@ -480,20 +578,25 @@
           <h4 style="margin: 0 0 12px; font-size: 16px; font-weight: 700; color: #29292B;">Графический дизайн</h4>
           <div class="scroll-row">
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Дизайн полиграфии">
-                <img src="assets/placeholder.png" alt="Дизайн полиграфии" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Дизайн полиграфии — Studio One: визитки, буклет, открытка">
+                <img src="assets/design-studio-one.webp" alt="Дизайн полиграфии — Studio One: визитки, буклет, открытка" style="width: 100%; height: 100%; object-fit: cover; display: block;">
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Дизайн полиграфии</div>
             </div>
-            <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Презентации и питч-деки">
-                <img src="assets/placeholder.png" alt="Презентации и питч-деки" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <div class="scroll-item scroll-item-wide">
+              <button type="button" class="gallery-btn" data-video-src="assets/design-presentation.mp4" data-video-alt="Презентация — видео" onclick="openMedia(event)" style="aspect-ratio: 16/9; background: #000000; position: relative; display: block;" aria-label="Открыть видео: Презентация — видео">
+                <img src="assets/design-presentation-poster.jpg" alt="Презентация — видео" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Презентации и питч-деки</div>
             </div>
             <div class="scroll-item">
-              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Инфографика">
-                <img src="assets/placeholder.png" alt="Инфографика" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openMedia(event)" aria-label="Открыть работу: Инфографика для сайта">
+                <img src="assets/design-infographic.webp" alt="Инфографика для сайта" style="width: 100%; height: 100%; object-fit: cover; display: block;">
               </button>
               <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Инфографика</div>
             </div>

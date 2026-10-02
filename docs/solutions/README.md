@@ -11,3 +11,4 @@
 | [Телефонная версия при inline-стилях, кладка, угловые кляксы](2026-09-26-responsive-with-inline-styles.md) | css, mobile, gallery, splash |
 | Абсолютные адреса в og:image/og:url — см. [page-structure](../features/page-structure.md) | seo, share |
 | [Визуальный тест краснеет из-за сдвига на доли пикселя](2026-09-27-visual-subpixel-shift.md) | testing, visual |
+| [Пакетная загрузка работ: имена файлов, дубли, сжатие видео](2026-10-02-bulk-portfolio-upload.md) | content, assets, video, upload |

@@ -41,19 +41,19 @@
 
 | Фича | Файл | Где в index.html |
 |---|---|---|
-| Каркас страницы, мета, шрифты | [page-structure.md](docs/features/page-structure.md) | 1–58, 564 |
-| Шапка и меню | [header-navigation.md](docs/features/header-navigation.md) | 60–73 |
-| Первый экран (герой) | [hero.md](docs/features/hero.md) | 75–87 |
+| Каркас страницы, мета, шрифты | [page-structure.md](docs/features/page-structure.md) | 1–60, 860 |
+| Шапка и меню | [header-navigation.md](docs/features/header-navigation.md) | 62–75 |
+| Первый экран (герой) | [hero.md](docs/features/hero.md) | 77–89 |
 | Декоративные кляксы | [decorative-splashes.md](docs/features/decorative-splashes.md) | CSS 30–31, секции |
-| AI-CREATOR: карточки услуг | [ai-services.md](docs/features/ai-services.md) | 89–159 |
-| Портфолио-ленты по направлениям | [portfolio-galleries.md](docs/features/portfolio-galleries.md) | 161–467 |
-| Раскадровки (contact sheet) | [storyboards.md](docs/features/storyboards.md) | 193–316 |
-| Видео-работы | [video-works.md](docs/features/video-works.md) | 319–343 |
-| Handmade: картины из CD | [handmade.md](docs/features/handmade.md) | 479–525 |
-| CTA-блоки «Стоимость» | [cta-blocks.md](docs/features/cta-blocks.md) | 469–475, 517–523 |
-| Обо мне | [about.md](docs/features/about.md) | 527–533 |
-| Контакты и футер | [contacts.md](docs/features/contacts.md) | 533–550 |
-| Лайтбокс (просмотрщик) | [lightbox.md](docs/features/lightbox.md) | 555–562, JS 565–699 |
+| AI-CREATOR: карточки услуг | [ai-services.md](docs/features/ai-services.md) | 91–161 |
+| Портфолио-ленты по направлениям | [portfolio-galleries.md](docs/features/portfolio-galleries.md) | 163–605 |
+| Раскадровки (contact sheet) | [storyboards.md](docs/features/storyboards.md) | 205–334 |
+| Видео-работы | [video-works.md](docs/features/video-works.md) | все ленты `#ai-creator` |
+| Handmade: картины из CD | [handmade.md](docs/features/handmade.md) | 624–683 |
+| CTA-блоки «Стоимость» | [cta-blocks.md](docs/features/cta-blocks.md) | 612–621, 673–680 |
+| Обо мне | [about.md](docs/features/about.md) | 684–708 |
+| Контакты и футер | [contacts.md](docs/features/contacts.md) | 684–710 |
+| Лайтбокс (просмотрщик) | [lightbox.md](docs/features/lightbox.md) | 712–720, JS 722–858 |
 | Медиафайлы (assets) | [assets.md](docs/features/assets.md) | `assets/` |
 
 ## Тестирование
