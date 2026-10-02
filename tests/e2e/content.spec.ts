@@ -26,13 +26,15 @@ test.describe('Иллюстрация и сторителлинг', () => {
 });
 
 test.describe('AI-аватары и образы / Для брендов', () => {
-  test('AI-аватары: 5 мест — 2 видео, AI-аватары для соцсетей, Виртуальный персонаж бренда, AI-аватары', async ({ page }) => {
+  test('AI-аватары: 7 мест с DJ Ineczka работами', async ({ page }) => {
     await openSite(page);
     const captions = await page.locator('#portfolio-avatars .scroll-item > div').allInnerTexts();
-    expect(captions.map((c) => c.trim())).toEqual([
-      'Нейрофотосессии (видео)', 'Нейрофотосессии (видео)',
-      'AI-аватары для соцсетей', 'Виртуальный персонаж бренда', 'AI-аватары',
-    ]);
+    expect(captions.map((c) => c.trim())).toContain('Нейрофотосессии (видео)');
+    expect(captions.map((c) => c.trim())).toContain('AI-аватары для соцсетей');
+    expect(captions.map((c) => c.trim())).toContain('Виртуальный персонаж бренда');
+    expect(captions.map((c) => c.trim())).toContain('DJ Ineczka — визуал');
+    expect(captions.map((c) => c.trim())).toContain('DJ Ineczka — портрет');
+    expect(captions.length).toBe(7);
   });
 
   test('«Логотипы и брендбуки» вместо «Визуалы для сайта/лендинга», «Виртуальный персонаж бренда» вместо имидж-стайлинга', async ({ page }) => {
