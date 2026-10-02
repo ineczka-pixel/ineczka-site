@@ -105,7 +105,7 @@ test.describe('Портфолио: превью на телефоне', () => {
     await openSite(page);
     const rows = page.locator('#ai-creator .scroll-row');
     const n = await rows.count();
-    expect(n).toBe(6);
+    expect(n).toBe(7);
     for (let i = 0; i < n; i++) {
       const r = await rows.nth(i).evaluate((row) => ({
         cols: new Set([...row.querySelectorAll('.scroll-item')].map((it) => Math.round(it.getBoundingClientRect().left))).size,
@@ -126,7 +126,7 @@ test.describe('Портфолио: превью на телефоне', () => {
   test('на компьютере ленты портфолио остаются горизонтальными', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await openSite(page);
-    const display = await page.locator('#portfolio-brands .scroll-row').evaluate((r) => getComputedStyle(r).display);
-    expect(display).toBe('flex');
+    const displays = await page.locator('#ai-creator .scroll-row').evaluateAll((rs) => rs.map((r) => getComputedStyle(r).display));
+    expect(displays).toEqual(Array(7).fill('flex'));
   });
 });

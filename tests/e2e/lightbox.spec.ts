@@ -3,8 +3,8 @@ import { test, expect } from '@playwright/test';
 import { openSite, overlay, lbImage, lbVideo, counter, expectLightboxClosed } from '../helpers/site';
 
 const firstHandmade = '#handmade .gallery-btn >> nth=0';
-// работы ленты «Для брендов и бизнеса» (листаются внутри ленты)
-const brandWorks = '#portfolio-brands .gallery-btn';
+// работы 1-го ряда «Для брендов и бизнеса» (листаются внутри своего ряда)
+const brandWorks = '#portfolio-brands .scroll-row >> nth=0 >> .gallery-btn';
 
 test.describe('Лайтбокс: изображения', () => {
   test('по умолчанию закрыт', async ({ page }) => {
@@ -242,9 +242,9 @@ test.describe('Лайтбокс: листание работ портфолио 
     await works.nth(1).scrollIntoViewIfNeeded();
     await works.nth(1).click();
     await page.locator('#lightbox-next').click();
-    await expect(lbImage(page)).toHaveAttribute('src', /brand-trubadur-event\.webp$/);
-    await page.keyboard.press('ArrowRight');
     await expect(lbImage(page)).toHaveAttribute('src', /brand-burger\.webp$/);
+    await page.keyboard.press('ArrowRight');
+    await expect(lbImage(page)).toHaveAttribute('src', /brand-svitaly-mockup\.webp$/);
     await expect(counter(page)).toHaveText(`Работа 4 из ${total}`);
     await page.keyboard.press('Escape');
     await works.last().scrollIntoViewIfNeeded();
@@ -285,6 +285,19 @@ test.describe('Лайтбокс: листание работ портфолио 
     await expect(lbVideo(page)).toHaveAttribute('src', 'assets/avatar-socseti-2.mp4');
   });
 
+  test('2-й ряд «Для брендов» листается отдельно: логотипы → брендбуки → брендовые иллюстрации', async ({ page }) => {
+    await openSite(page);
+    const works = page.locator('#portfolio-brands .scroll-row >> nth=1 >> .gallery-btn');
+    await works.first().scrollIntoViewIfNeeded();
+    await works.first().click();
+    await expect(counter(page)).toHaveText('Работа 1 из 7');
+    await page.keyboard.press('ArrowLeft');
+    await expect(lbImage(page)).toHaveAttribute('src', /logo-svitaly\.jpg$/);
+    for (let i = 0; i < 6; i++) await page.keyboard.press('ArrowRight');
+    await expect(lbImage(page)).toHaveAttribute('src', /brand-trubadur-event\.webp$/);
+    await expect(counter(page)).toHaveText('Работа 7 из 7');
+  });
+
   test('ленты не смешиваются: из последней работы «Графического дизайна» дальше не листается', async ({ page }) => {
     await openSite(page);
     const works = page.locator('#portfolio-design .gallery-btn');
@@ -298,7 +311,7 @@ test.describe('Лайтбокс: листание работ портфолио 
   test('каждая лента портфолио — своя листаемая серия «Работа»', async ({ page }) => {
     await openSite(page);
     const rows = await page.locator('#ai-creator .scroll-row').evaluateAll((rs) => rs.map((r) => r.getAttribute('data-sequence')));
-    expect(rows).toEqual(['Работа', 'Работа', 'Работа', 'Работа', 'Работа', 'Работа']);
+    expect(rows).toEqual(['Работа', 'Работа', 'Работа', 'Работа', 'Работа', 'Работа', 'Работа']);
     const notSeq = await page.locator('#ai-creator .scroll-row .gallery-btn:not([onclick="openSequence(event)"])').count();
     expect(notSeq).toBe(0);
   });

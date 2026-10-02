@@ -53,7 +53,8 @@ test.describe('AI-аватары и образы / Для брендов', () =>
 
   test('«Логотипы и брендбуки» вместо «Визуалы для сайта/лендинга», «Виртуальный персонаж бренда» вместо имидж-стайлинга', async ({ page }) => {
     await openSite(page);
-    await expect(page.locator('#portfolio-brands .scroll-item').last()).toContainText('Логотипы и брендбуки');
+    await expect(page.locator('#portfolio-brands .scroll-item', { hasText: 'Логотипы' })).toHaveCount(3);
+    await expect(page.locator('#portfolio-brands .scroll-item', { hasText: 'Брендбуки' })).toHaveCount(2);
     await expect(page.locator('#ai-creator a.service-link', { hasText: 'Логотипы и брендбуки' })).toHaveAttribute('href', '#portfolio-brands');
     await expect(page.locator('#ai-creator a.service-link', { hasText: 'Виртуальный персонаж бренда' })).toHaveAttribute('href', '#portfolio-avatars');
     await expect(page.locator('#ai-creator')).not.toContainText('Визуалы для сайта');
@@ -73,22 +74,25 @@ test('Handmade: 12 картин, новые — сакура, зелёный и 
 
 
 test.describe('Работы автора в лентах портфолио', () => {
-  test('Для брендов: визуализация, 3 креатива, 2 упаковки, брендовая иллюстрация, 5 логотипов и брендбуков', async ({ page }) => {
+  test('Для брендов: 1-й ряд — визуализация, 2 креатива, 2 упаковки; 2-й ряд — 3 логотипа, 2 брендбука, 2 брендовые иллюстрации', async ({ page }) => {
     await openSite(page);
+    await expect(page.locator('#portfolio-brands .scroll-row')).toHaveCount(2);
     expect(await rowWorks(page, 'portfolio-brands')).toEqual([
       ['Предметная визуализация товара', 'brand-speakers.webp'],
       ['Рекламные креативы', 'brand-illusion.webp'],
-      ['Рекламные креативы', 'brand-trubadur-event.webp'],
       ['Рекламные креативы', 'brand-burger.webp'],
       ['Упаковка и mockup', 'brand-svitaly-mockup.webp'],
       ['Упаковка и mockup', 'brand-oil-packaging.webp'],
+      ['Логотипы', 'logo-svitaly.jpg'],
+      ['Логотипы', 'logo-buffo.jpg'],
+      ['Логотипы', 'logo-trubadur.jpg'],
+      ['Брендбуки', 'logo-svitaly-variations.webp'],
+      ['Брендбуки', 'brandbook-trubadur.jpg'],
       ['Брендовые иллюстрации', 'brand-ineczka-ai-creator.webp'],
-      ['Логотипы и брендбуки', 'logo-svitaly.jpg'],
-      ['Логотипы и брендбуки', 'logo-svitaly-variations.webp'],
-      ['Логотипы и брендбуки', 'logo-buffo.jpg'],
-      ['Логотипы и брендбуки', 'logo-trubadur.jpg'],
-      ['Логотипы и брендбуки', 'brandbook-trubadur.jpg'],
+      ['Брендовые иллюстрации', 'brand-trubadur-event.webp'],
     ]);
+    const second = await page.locator('#portfolio-brands .scroll-row').nth(1).locator('.scroll-item').count();
+    expect(second).toBe(7);
   });
 
   test('Видео и анимация: AI-клип, анимация, Reels/Shorts — все видео', async ({ page }) => {

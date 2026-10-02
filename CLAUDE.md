@@ -41,19 +41,19 @@
 
 | Фича | Файл | Где в index.html |
 |---|---|---|
-| Каркас страницы, мета, шрифты | [page-structure.md](docs/features/page-structure.md) | 1–60, 821 |
+| Каркас страницы, мета, шрифты | [page-structure.md](docs/features/page-structure.md) | 1–60, 824 |
 | Шапка и меню | [header-navigation.md](docs/features/header-navigation.md) | 62–75 |
 | Первый экран (герой) | [hero.md](docs/features/hero.md) | 77–89 |
 | Декоративные кляксы | [decorative-splashes.md](docs/features/decorative-splashes.md) | CSS 30–31, секции |
 | AI-CREATOR: карточки услуг | [ai-services.md](docs/features/ai-services.md) | 91–161 |
-| Портфолио-ленты по направлениям | [portfolio-galleries.md](docs/features/portfolio-galleries.md) | 163–599 |
+| Портфолио-ленты по направлениям | [portfolio-galleries.md](docs/features/portfolio-galleries.md) | 163–601 |
 | Раскадровки (contact sheet) | [storyboards.md](docs/features/storyboards.md) | 205–334 |
 | Видео-работы | [video-works.md](docs/features/video-works.md) | все ленты `#ai-creator` |
-| Handmade: картины из CD | [handmade.md](docs/features/handmade.md) | 618–677 |
-| CTA-блоки «Стоимость» | [cta-blocks.md](docs/features/cta-blocks.md) | 606–615, 667–674 |
-| Обо мне | [about.md](docs/features/about.md) | 678–702 |
-| Контакты и футер | [contacts.md](docs/features/contacts.md) | 678–704 |
-| Лайтбокс (просмотрщик) | [lightbox.md](docs/features/lightbox.md) | 706–714, JS 716–819 |
+| Handmade: картины из CD | [handmade.md](docs/features/handmade.md) | 620–679 |
+| CTA-блоки «Стоимость» | [cta-blocks.md](docs/features/cta-blocks.md) | 608–617, 669–676 |
+| Обо мне | [about.md](docs/features/about.md) | 680–704 |
+| Контакты и футер | [contacts.md](docs/features/contacts.md) | 680–706 |
+| Лайтбокс (просмотрщик) | [lightbox.md](docs/features/lightbox.md) | 708–716, JS 718–821 |
 | Медиафайлы (assets) | [assets.md](docs/features/assets.md) | `assets/` |
 
 ## Тестирование
