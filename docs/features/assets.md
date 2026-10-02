@@ -8,7 +8,7 @@
 | Заглушка | `placeholder.png` | в лентах не используется (запас для новых мест) |
 | Раскадровки | `storyboard1-frame-01..15.jpg`, `storyboard2-frame-01..22.jpg` | [storyboards](storyboards.md) |
 | Видео | `video-1.mp4` (6.6 МБ), `video-2.mp4` (4.6 МБ), `video-N-poster.jpg` | [video-works](video-works.md) |
-| Портфолио: картинки | `illustration-*.webp`, `brand-*.webp`, `logo-*.jpg/webp`, `brandbook-trubadur.jpg`, `dj-ineczka-1/2.webp`, `design-*.webp` | [portfolio-galleries](portfolio-galleries.md) |
+| Портфолио: картинки | `illustration-*.webp`, `brand-*.webp`, `logo-*.jpg/webp`, `brandbook-trubadur.jpg`, `dj-ineczka-1.webp`, `dj-ineczka-promo-green.webp`, `design-*.webp` | [portfolio-galleries](portfolio-galleries.md) |
 | Портфолио: видео | `serial-*`, `avatar-*`, `video-ai-klip`, `video-animation`, `video-reels`, `artist-*`, `design-presentation` (`.mp4` 2–7 МБ + `-poster.jpg`) | [video-works](video-works.md) |
 | Handmade | `handmade-1-motorcycle.jpg … handmade-12-butterfly-kiss.jpg` | [handmade](handmade.md) |
 

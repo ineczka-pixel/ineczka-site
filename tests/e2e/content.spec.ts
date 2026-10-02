@@ -105,7 +105,7 @@ test.describe('Работы автора в лентах портфолио', ()
     expect(await rowWorks(page, 'portfolio-artists')).toEqual([
       ['Обложки треков/альбомов', 'dj-ineczka-1.webp'],
       ['Промо-визуалы для выступлений', 'artist-promo.mp4'],
-      ['Промо-визуалы для выступлений', 'dj-ineczka-2.webp'],
+      ['Промо-визуалы для выступлений', 'dj-ineczka-promo-green.webp'],
       ['Персонажи', 'artist-character.mp4'],
       ['Маскоты', 'artist-mascots.mp4'],
     ]);
