@@ -3,8 +3,8 @@ import { test, expect } from '@playwright/test';
 import { openSite, overlay, lbImage, lbVideo, counter, expectLightboxClosed } from '../helpers/site';
 
 const firstHandmade = '#handmade .gallery-btn >> nth=0';
-// одиночная работа (без листания) — первое превью в «Для брендов и бизнеса»
-const singleWork = '#portfolio-brands .gallery-btn >> nth=0';
+// работы ленты «Для брендов и бизнеса» (листаются внутри ленты)
+const brandWorks = '#portfolio-brands .gallery-btn';
 
 test.describe('Лайтбокс: изображения', () => {
   test('по умолчанию закрыт', async ({ page }) => {
@@ -22,14 +22,17 @@ test.describe('Лайтбокс: изображения', () => {
     await expect(lbVideo(page)).toBeHidden();
   });
 
-  test('одиночная работа портфолио открывается без стрелок и счётчика', async ({ page }) => {
+  test('работа портфолио открывается со стрелками и счётчиком своей ленты', async ({ page }) => {
     await openSite(page);
-    await page.locator(singleWork).scrollIntoViewIfNeeded();
-    await page.locator(singleWork).click();
+    const works = page.locator(brandWorks);
+    const total = await works.count();
+    await works.nth(1).scrollIntoViewIfNeeded();
+    await works.nth(1).click();
     await expect(lbImage(page)).toBeVisible();
-    await expect(page.locator('#lightbox-prev')).toBeHidden();
-    await expect(page.locator('#lightbox-next')).toBeHidden();
-    await expect(counter(page)).toBeHidden();
+    await expect(lbImage(page)).toHaveAttribute('src', /brand-illusion\.webp$/);
+    await expect(page.locator('#lightbox-prev')).toBeVisible();
+    await expect(page.locator('#lightbox-next')).toBeVisible();
+    await expect(counter(page)).toHaveText(`Работа 2 из ${total}`);
   });
 
   test('закрывается кнопкой ×', async ({ page }) => {
@@ -55,7 +58,7 @@ test.describe('Лайтбокс: изображения', () => {
 
   test('каждая кнопка галереи открывает именно свою картинку', async ({ page }) => {
     await openSite(page);
-    const buttons = page.locator('.gallery-btn:not([data-video-src])[onclick^="openMedia"]');
+    const buttons = page.locator('.gallery-btn:not([data-video-src])');
     const n = await buttons.count();
     expect(n).toBeGreaterThan(0);
     for (let i = 0; i < n; i++) {
@@ -153,14 +156,15 @@ test.describe('Лайтбокс: раскадровки', () => {
     await expect(lbImage(page)).toHaveAttribute('src', /storyboard2-frame-22\.jpg$/);
   });
 
-  test('после закрытия раскадровки обычная картинка открывается без стрелок', async ({ page }) => {
+  test('после закрытия раскадровки работа портфолио листается уже по своей ленте', async ({ page }) => {
     await openSite(page);
     await page.locator('.contact-sheet').first().locator('.gallery-btn').first().click();
     await page.keyboard.press('Escape');
-    await page.locator(singleWork).scrollIntoViewIfNeeded();
-    await page.locator(singleWork).click();
-    await expect(counter(page)).toBeHidden();
-    await expect(page.locator('#lightbox-next')).toBeHidden();
+    const works = page.locator(brandWorks);
+    const total = await works.count();
+    await works.first().scrollIntoViewIfNeeded();
+    await works.first().click();
+    await expect(counter(page)).toHaveText(`Работа 1 из ${total}`);
   });
 
   test('свайп пальцем листает раскадровку (HR-IMAGES-3)', async ({ page }) => {
@@ -229,3 +233,73 @@ test.describe('Лайтбокс: картины из CD (Handmade)', () => {
   });
 });
 
+
+test.describe('Лайтбокс: листание работ портфолио внутри ленты', () => {
+  test('«Рекламные креативы»: стрелкой и клавишей к следующему креативу, на краю ленты — стоп', async ({ page }) => {
+    await openSite(page);
+    const works = page.locator(brandWorks);
+    const total = await works.count();
+    await works.nth(1).scrollIntoViewIfNeeded();
+    await works.nth(1).click();
+    await page.locator('#lightbox-next').click();
+    await expect(lbImage(page)).toHaveAttribute('src', /brand-trubadur-event\.webp$/);
+    await page.keyboard.press('ArrowRight');
+    await expect(lbImage(page)).toHaveAttribute('src', /brand-burger\.webp$/);
+    await expect(counter(page)).toHaveText(`Работа 4 из ${total}`);
+    await page.keyboard.press('Escape');
+    await works.last().scrollIntoViewIfNeeded();
+    await works.last().click();
+    await page.keyboard.press('ArrowRight');
+    await expect(counter(page)).toHaveText(`Работа ${total} из ${total}`);
+    await expect(overlay(page)).toBeVisible();
+  });
+
+  test('в ленте с видео: картинка → видео играет в просмотрщике → снова картинка, видео остановлено', async ({ page }) => {
+    await openSite(page);
+    const works = page.locator('#portfolio-artists .gallery-btn');
+    await works.first().scrollIntoViewIfNeeded();
+    await works.first().click();
+    await expect(lbImage(page)).toBeVisible();
+    await expect(lbVideo(page)).toBeHidden();
+    await page.locator('#lightbox-next').click();
+    await expect(lbVideo(page)).toBeVisible();
+    await expect(lbImage(page)).toBeHidden();
+    await expect(lbVideo(page)).toHaveAttribute('src', 'assets/artist-promo.mp4');
+    await expect(counter(page)).toHaveText('Работа 2 из 5');
+    await page.locator('#lightbox-next').click();
+    await expect(lbImage(page)).toBeVisible();
+    await expect(lbVideo(page)).toBeHidden();
+    expect(await lbVideo(page).evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
+    await page.keyboard.press('Escape');
+    await expectLightboxClosed(page);
+  });
+
+  test('видео открывается из ленты сразу со счётчиком и листается к соседнему видео', async ({ page }) => {
+    await openSite(page);
+    const btn = page.locator('[data-video-src="assets/avatar-socseti-1.mp4"]');
+    await btn.scrollIntoViewIfNeeded();
+    await btn.click();
+    await expect(lbVideo(page)).toHaveAttribute('src', 'assets/avatar-socseti-1.mp4');
+    await expect(counter(page)).toHaveText('Работа 3 из 6');
+    await page.keyboard.press('ArrowRight');
+    await expect(lbVideo(page)).toHaveAttribute('src', 'assets/avatar-socseti-2.mp4');
+  });
+
+  test('ленты не смешиваются: из последней работы «Графического дизайна» дальше не листается', async ({ page }) => {
+    await openSite(page);
+    const works = page.locator('#portfolio-design .gallery-btn');
+    await works.last().scrollIntoViewIfNeeded();
+    await works.last().click();
+    await expect(counter(page)).toHaveText('Работа 3 из 3');
+    await page.keyboard.press('ArrowRight');
+    await expect(lbImage(page)).toHaveAttribute('src', /design-infographic\.webp$/);
+  });
+
+  test('каждая лента портфолио — своя листаемая серия «Работа»', async ({ page }) => {
+    await openSite(page);
+    const rows = await page.locator('#ai-creator .scroll-row').evaluateAll((rs) => rs.map((r) => r.getAttribute('data-sequence')));
+    expect(rows).toEqual(['Работа', 'Работа', 'Работа', 'Работа', 'Работа', 'Работа']);
+    const notSeq = await page.locator('#ai-creator .scroll-row .gallery-btn:not([onclick="openSequence(event)"])').count();
+    expect(notSeq).toBe(0);
+  });
+});

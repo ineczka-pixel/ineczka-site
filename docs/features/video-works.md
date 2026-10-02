@@ -1,11 +1,11 @@
 # Видео-работы
 
 **Назначение:** показать видео-работы (аватары, сериалы, клипы, анимация, промо, персонажи, презентация).
-**Где:** 15 видео во всех лентах `#ai-creator` (см. [portfolio-galleries](portfolio-galleries.md)). JS — ветка `data-video-src` в `openMedia` (~765).
+**Где:** 15 видео во всех лентах `#ai-creator` (см. [portfolio-galleries](portfolio-galleries.md)). JS — поле `video` в `openSequence` и ветка видео в `render()`: видео листаются вместе с картинками своей ленты.
 
 ## Как устроено
 - `button.gallery-btn` c `data-video-src="assets/video-N.mp4"`, превью `<img src="assets/video-N-poster.jpg">` 9:16 и иконкой ▶ (SVG).
-- Клик → в лайтбоксе `#lightbox-video` получает `src` и `play()`. При закрытии — `pause()`, `removeAttribute('src')` (видео не играет в фоне).
+- Клик → в лайтбоксе `#lightbox-video` получает `src` и `play()`; при перелистывании на картинку — `pause()` и снятие `src`. При закрытии — `pause()`, `removeAttribute('src')` (видео не играет в фоне).
 - Кодек файлов — **H.264 + AAC** (`avc1`/`mp4a`). Chromium из Playwright H.264 не поддерживает, поэтому реальное воспроизведение проверяет человек (или прогон с `PW_CHANNEL=chrome`). См. [урок](../solutions/2026-09-26-playwright-chromium-no-h264.md).
 
 ## Как добавить видео
