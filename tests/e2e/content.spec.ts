@@ -74,7 +74,7 @@ test('Handmade: 12 картин, новые — сакура, зелёный и 
 
 
 test.describe('Работы автора в лентах портфолио', () => {
-  test('Для брендов: 1-й ряд — визуализация, 2 креатива, 2 упаковки; 2-й ряд — 3 логотипа, 2 брендбука, 2 брендовые иллюстрации', async ({ page }) => {
+  test('Для брендов: 1-й ряд — визуализация, 2 креатива, 2 упаковки; шатёр «Трубадур»; 2-й ряд — 3 логотипа, 2 брендбука, Ineczka AI Creator', async ({ page }) => {
     await openSite(page);
     await expect(page.locator('#portfolio-brands .scroll-row')).toHaveCount(2);
     expect(await rowWorks(page, 'portfolio-brands')).toEqual([
@@ -83,16 +83,16 @@ test.describe('Работы автора в лентах портфолио', ()
       ['Рекламные креативы', 'brand-burger.webp'],
       ['Упаковка и mockup', 'brand-svitaly-mockup.webp'],
       ['Упаковка и mockup', 'brand-oil-packaging.webp'],
+      ['Брендовые иллюстрации', 'brand-trubadur-event.webp'],
       ['Логотипы', 'logo-svitaly.jpg'],
       ['Логотипы', 'logo-buffo.jpg'],
       ['Логотипы', 'logo-trubadur.jpg'],
       ['Брендбуки', 'logo-svitaly-variations.webp'],
       ['Брендбуки', 'brandbook-trubadur.jpg'],
       ['Брендовые иллюстрации', 'brand-ineczka-ai-creator.webp'],
-      ['Брендовые иллюстрации', 'brand-trubadur-event.webp'],
     ]);
     const second = await page.locator('#portfolio-brands .scroll-row').nth(1).locator('.scroll-item').count();
-    expect(second).toBe(7);
+    expect(second).toBe(6);
   });
 
   test('Видео и анимация: AI-клип, анимация, Reels/Shorts — все видео', async ({ page }) => {

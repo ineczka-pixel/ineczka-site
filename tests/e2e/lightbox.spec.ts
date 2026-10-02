@@ -285,17 +285,17 @@ test.describe('Лайтбокс: листание работ портфолио 
     await expect(lbVideo(page)).toHaveAttribute('src', 'assets/avatar-socseti-2.mp4');
   });
 
-  test('2-й ряд «Для брендов» листается отдельно: логотипы → брендбуки → брендовые иллюстрации', async ({ page }) => {
+  test('2-й ряд «Для брендов» листается отдельно: логотипы → брендбуки → брендовая иллюстрация', async ({ page }) => {
     await openSite(page);
     const works = page.locator('#portfolio-brands .scroll-row >> nth=1 >> .gallery-btn');
     await works.first().scrollIntoViewIfNeeded();
     await works.first().click();
-    await expect(counter(page)).toHaveText('Работа 1 из 7');
+    await expect(counter(page)).toHaveText('Работа 1 из 6');
     await page.keyboard.press('ArrowLeft');
     await expect(lbImage(page)).toHaveAttribute('src', /logo-svitaly\.jpg$/);
     for (let i = 0; i < 6; i++) await page.keyboard.press('ArrowRight');
-    await expect(lbImage(page)).toHaveAttribute('src', /brand-trubadur-event\.webp$/);
-    await expect(counter(page)).toHaveText('Работа 7 из 7');
+    await expect(lbImage(page)).toHaveAttribute('src', /brand-ineczka-ai-creator\.webp$/);
+    await expect(counter(page)).toHaveText('Работа 6 из 6');
   });
 
   test('ленты не смешиваются: из последней работы «Графического дизайна» дальше не листается', async ({ page }) => {
