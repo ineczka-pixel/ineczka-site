@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ineczka — AI-CREATOR and Handmade</title>
+<meta name="description" content="AI-CREATOR: illustrations, storyboards and serials based on them, AI-avatars, visuals and brand identity. Handmade: paintings made from CD-disks, where light becomes art.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ineczka-pixel.github.io/ineczka-site/">
+<meta property="og:title" content="Ineczka — AI-CREATOR and Handmade">
+<meta property="og:description" content="AI-CREATOR: illustrations, storyboards and serials based on them, AI-avatars, visuals and brand identity. Handmade: paintings made from CD-disks, where light becomes art.">
+<meta property="og:image" content="https://ineczka-pixel.github.io/ineczka-site/assets/other/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap');
+  body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: #29292B; background: #FFFFFF; }
+  h1, h2, h3, .font-display { font-family: 'Manrope', system-ui, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  .nav-link:hover { color: #782182; }
+  .btn-purple:hover { background: #631a6c; }
+  .btn-olive:hover { background: #667129; }
+  .btn-blue:hover { background: #3b4585; }
+  .btn-teal:hover { background: #00898f; }
+  .btn-outline-purple:hover { background: #782182; color: #FFFFFF; }
+  .btn-outline-blue:hover { background: #46509E; color: #FFFFFF; }
+  .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.10); }
+  .deco-purple-splash { background-image: url(assets/other/splash-purple.png); background-repeat: no-repeat; background-size: contain; background-position: center; }
+  .deco-olive-splash { background-image: url(assets/other/splash-olive.png); background-repeat: no-repeat; background-size: contain; background-position: center; }
+  .contact-link:hover { opacity: 0.8; }
+  .service-link { color: inherit; }
+  .service-link:hover { color: #782182; text-decoration: underline; }
+  .service-link-light:hover { text-decoration: underline; }
+  .scroll-row { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 6px; }
+  .scroll-row::-webkit-scrollbar { height: 6px; }
+  .scroll-row::-webkit-scrollbar-thumb { background: #ECECEE; border-radius: 3px; }
+  .scroll-item { flex: 0 0 190px; }
+  .scroll-item-wide { flex-basis: 340px; }
+  .gallery-btn { border: none; padding: 0; margin: 0; background: none; cursor: pointer; display: block; width: 100%; border-radius: 12px; overflow: hidden; }
+  .gallery-btn img { transition: transform 0.3s ease; }
+  .gallery-btn:hover img { transform: scale(1.06); }
+  .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+  .hero-gap, .hero-space { display: none; }
+  .masonry > .gallery-btn { break-inside: avoid; margin: 0 0 16px; }
+  @media (max-width: 640px) {
+    .hero-indent { display: none; }
+    .hero-space { display: inline; }
+    .hero-gap { display: block; height: 1em; }
+    .services-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    .services-grid > div { padding: 16px !important; }
+    .scroll-row { display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: dense; gap: 10px; overflow: visible; }
+    .scroll-item { min-width: 0; }
+    .scroll-item-wide { grid-column: span 2; }
+  }
+</style>
+</head>
+<body>
+<div style="width: 100%; min-height: 100vh; box-sizing: border-box; overflow-x: hidden;">
+
+  <!-- HEADER -->
+  <header style="position: sticky; top: 0; z-index: 50; background: #FFFFFF; border-bottom: 1px solid #ECECEE;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+      <a href="#top" style="display: flex; align-items: center;">
+        <img src="assets/other/logo.jpg" alt="Ineczka" style="height: 34px; width: auto; display: block;">
+      </a>
+      <nav style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">
+        <a class="nav-link" href="#ai-creator" style="font-size: 15px; font-weight: 600;">AI-CREATOR</a>
+        <a class="nav-link" href="#handmade" style="font-size: 15px; font-weight: 600;">Handmade</a>
+        <a class="nav-link" href="#about" style="font-size: 15px; font-weight: 600;">About Me</a>
+        <a class="nav-link" href="#contacts" style="font-size: 15px; font-weight: 600;">Contacts</a>
+        <a class="nav-link" href="index.html" style="font-size: 12px; font-weight: 600; color: #999; margin-left: 16px; padding-left: 16px; border-left: 1px solid #ECECEE;">Русский</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" style="position: relative; overflow: hidden; background-color: #ffffff">
+    <div class="deco-purple-splash" style="position: absolute; top: 0; right: 0; width: 364px; height: 380px; opacity: 0.9; transform: rotate(180deg)"></div>
+    <div class="deco-olive-splash" style="position: absolute; left: 0; width: 420px; height: 209px; opacity: 0.65; transform: rotate(180deg); bottom: 0;"></div>
+    <div style="position: relative; max-width: 1180px; margin: 0 auto; padding: 120px 24px 110px; text-align: center;">
+      <img src="assets/other/logo.jpg" alt="Ineczka" style="width: 20vw; max-width: 320px; min-width: 140px; height: auto; display: block; margin: 0 auto 28px;">
+      <h1 style="margin: 0 0 20px; font-size: 50px; font-weight: 800; color: #768330; line-height: 1.25; font-family: Manrope, sans-serif"><span style="font-weight: normal">Illustration, Storytelling<br>and Handmade Art<br>in One Pair of Hands</span></h1>
+      <p style="margin: 0 auto 44px; max-width: 660px; font-size: 18px; line-height: 1.6; color: #29292b; text-align: start">AI-CREATOR: illustrations, storyboards and serials based on them,<br><span class="hero-indent">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>AI-avatars, visuals and brand identity.<br><span class="hero-gap"></span>Handmade:<span class="hero-indent">&nbsp; &nbsp; &nbsp;</span><span class="hero-space">&nbsp;</span>paintings made from CD-disks, where light becomes art.</p>
+      <div style="display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;"><a href="#ai-creator" class="btn-purple" style="background: rgb(120, 33, 130); color: rgb(255, 255, 255); padding: 16px 32px; border-radius: 8px; font-weight: 700; font-size: 15px">AI-CREATOR</a>
+        <a href="#handmade" class="btn-blue" style="background: rgb(70, 80, 158); color: rgb(255, 255, 255); padding: 16px 32px; border-radius: 8px; font-weight: 700; font-size: 15px">Handmade</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI-CREATOR -->
+  <section id="ai-creator" style="background: #FFFFFF; position: relative; overflow: hidden;">
+    <div class="deco-olive-splash" style="position: absolute; top: -40px; right: -60px; width: 360px; height: 280px; opacity: 0.18;"></div>
+    <div style="position: relative; max-width: 1180px; margin: 0 auto; padding: 100px 24px;">
+      <div style="max-width: 720px; margin-bottom: 56px;">
+        <div style="font-size: 15px; font-weight: 700; color: #782182; margin-bottom: 14px;">AI Production and Illustration</div>
+        <h2 style="margin: 0 0 18px; font-size: clamp(26px, 3vw, 36px); font-weight: 800; color: #782182">AI-CREATOR</h2>
+        <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #4A4A4D;">Artist and AI-creator: illustrations, storyboards and serials based on them in different formats for social media and wide screen, AI-avatars and realistic visuals for brands, experts and artists. Without a studio and long shifts — with a result that looks like a real shoot or handmade work.</p>
+      </div>
+
+      <div class="services-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: auto; grid-auto-flow: dense; gap: 16px; margin-bottom: 48px;">
+
+        <div style="grid-column: span 2; grid-row: span 2; border-radius: 18px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; background-color: #768330">
+          <div>
+            <h3 style="margin: 0 0 10px; font-size: 20px; font-weight: 700; color: #FFFFFF;"><a href="#portfolio-illustration" class="service-link-light" style="color: #FFFFFF;">Illustration and Storytelling</a></h3>
+            <p style="margin: 0; max-width: 420px; font-size: 15px; line-height: 1.7; color: #FFFFFF;">Illustrations, storyboards and serials based on them, in vertical format for social media and horizontal for wide screen.</p>
+          </div>
+          <div style="border-top: 1px solid rgba(255,255,255,0.3); padding-top: 18px;">
+            <div style="font-size: 13px; color: rgba(255,255,255,0.85); margin-bottom: 6px;">Most frequent request right now</div>
+            <div style="font-size: 16px; font-weight: 700; color: #FFFFFF;">Neural Photo Sessions and AI-Avatars</div>
+          </div>
+        </div>
+
+        <div style="background: #FAFAFA; border: 1px solid #ECECEE; border-radius: 18px; padding: 24px;">
+          <h3 style="margin: 0 0 10px; font-size: 16px; font-weight: 700; color: #782182;">AI-Avatars and Characters</h3>
+          <ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4A4A4D;">
+            <li><a href="#portfolio-avatars" class="service-link">Neural Photo Sessions</a></li>
+            <li><a href="#portfolio-avatars" class="service-link">AI-Avatars for Social Media</a></li>
+            <li><a href="#portfolio-avatars" class="service-link">Virtual Brand Character</a></li>
+          </ul>
+        </div>
+
+        <div style="background: #FAFAFA; border: 1px solid #ECECEE; border-radius: 18px; padding: 24px;">
+          <h3 style="margin: 0 0 10px; font-size: 16px; font-weight: 700; color: #782182;">For Brands and Business</h3>
+          <ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4A4A4D;">
+            <li><a href="#portfolio-brands" class="service-link">Product Visualization</a></li>
+            <li><a href="#portfolio-brands" class="service-link">Advertising Creatives</a></li>
+            <li><a href="#portfolio-brands" class="service-link">Packaging and Mockups</a></li>
+            <li><a href="#portfolio-brands" class="service-link">Brand Illustrations</a></li>
+            <li><a href="#portfolio-brands" class="service-link">Logos and Brand Books</a></li>
+          </ul>
+        </div>
+
+        <div style="background: #FAFAFA; border: 1px solid #ECECEE; border-radius: 18px; padding: 24px;">
+          <h3 style="margin: 0 0 10px; font-size: 16px; font-weight: 700; color: #782182;">Video and Animation</h3>
+          <ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4A4A4D;">
+            <li><a href="#portfolio-video" class="service-link">AI-Clips (Music, Image)</a></li>
+            <li><a href="#portfolio-video" class="service-link">Animation of Static Images</a></li>
+            <li><a href="#portfolio-video" class="service-link">Content for Reels/Shorts</a></li>
+          </ul>
+        </div>
+
+        <div style="background: #FAFAFA; border: 1px solid #ECECEE; border-radius: 18px; padding: 24px;">
+          <h3 style="margin: 0 0 10px; font-size: 16px; font-weight: 700; color: #782182;">For Artists and Experts</h3>
+          <ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4A4A4D;">
+            <li><a href="#portfolio-artists" class="service-link">Track/Album Covers</a></li>
+            <li><a href="#portfolio-artists" class="service-link">Promo Visuals for Performances</a></li>
+            <li><a href="#portfolio-artists" class="service-link">Characters and Mascots</a></li>
+          </ul>
+        </div>
+
+        <div style="background: #FAFAFA; border: 1px solid #ECECEE; border-radius: 18px; padding: 24px;">
+          <h3 style="margin: 0 0 10px; font-size: 16px; font-weight: 700; color: #782182;">Graphic Design</h3>
+          <ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4A4A4D;">
+            <li><a href="#portfolio-design" class="service-link">Graphic Design</a></li>
+            <li><a href="#portfolio-design" class="service-link">Presentations and Pitch Decks</a></li>
+            <li><a href="#portfolio-design" class="service-link">Infographics</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div style="margin-bottom: 56px;">
+        <div style="font-size: 15px; font-weight: 700; color: #782182; margin-bottom: 24px;">Portfolio by Direction</div>
+
+        <div id="portfolio-illustration" style="scroll-margin-top: 90px; margin-bottom: 30px;">
+          <h4 style="margin: 0 0 12px; font-size: 16px; font-weight: 700; color: #29292B;">Illustration and Storytelling</h4>
+          <div class="scroll-row" data-sequence="Work">
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 1/1; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Illustration - Girl in Pink Glasses, Retro">
+                <img src="assets/other/illustration-retro.webp" alt="Illustration - Girl in Pink Glasses, Retro" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Illustration</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 1/1; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Illustration - Doll Characters in Sweaters">
+                <img src="assets/other/illustration-dolls.webp" alt="Illustration - Doll Characters in Sweaters" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Illustration</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Illustration - Girl in an Old Pharmacy">
+                <img src="assets/other/illustration-apteka.webp" alt="Illustration - Girl in an Old Pharmacy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Illustration</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/series/serial-vertical.mp4" data-video-alt="Serial - Vertical Format" onclick="openSequence(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Open video: Serial - Vertical Format">
+                <img src="assets/series/serial-vertical-poster.jpg" alt="Serial - Vertical Format" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Serial - Vertical Format</div>
+            </div>
+            <div class="scroll-item scroll-item-wide">
+              <button type="button" class="gallery-btn" data-video-src="assets/series/serial-horizontal.mp4" data-video-alt="Serial - Horizontal Format" onclick="openSequence(event)" style="aspect-ratio: 16/9; background: #000000; position: relative; display: block;" aria-label="Open video: Serial - Horizontal Format">
+                <img src="assets/series/serial-horizontal-poster.jpg" alt="Serial - Horizontal Format" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Serial - Horizontal Format</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 28px; padding-top: 22px; border-top: 1px solid #ECECEE;">
+            <div style="font-size: 14px; font-weight: 700; color: #29292B; margin-bottom: 4px;">Storyboard - "Book Store"</div>
+            <div style="font-size: 13px; color: #6C6B71; margin-bottom: 2px;">All frames - click any to browse the entire storyboard</div>
+            <div class="contact-sheet" data-sequence="Frame" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 8px; margin-top: 16px;">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 1">
+                <img src="assets/storyboard/storyboard1-frame-01.jpg" alt="Frame 1" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 2">
+                <img src="assets/storyboard/storyboard1-frame-02.jpg" alt="Frame 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 3">
+                <img src="assets/storyboard/storyboard1-frame-03.jpg" alt="Frame 3" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 4">
+                <img src="assets/storyboard/storyboard1-frame-04.jpg" alt="Frame 4" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 5">
+                <img src="assets/storyboard/storyboard1-frame-05.jpg" alt="Frame 5" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 6">
+                <img src="assets/storyboard/storyboard1-frame-06.jpg" alt="Frame 6" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 7">
+                <img src="assets/storyboard/storyboard1-frame-07.jpg" alt="Frame 7" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 8">
+                <img src="assets/storyboard/storyboard1-frame-08.jpg" alt="Frame 8" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 9">
+                <img src="assets/storyboard/storyboard1-frame-09.jpg" alt="Frame 9" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 10">
+                <img src="assets/storyboard/storyboard1-frame-10.jpg" alt="Frame 10" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 11">
+                <img src="assets/storyboard/storyboard1-frame-11.jpg" alt="Frame 11" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 12">
+                <img src="assets/storyboard/storyboard1-frame-12.jpg" alt="Frame 12" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 13">
+                <img src="assets/storyboard/storyboard1-frame-13.jpg" alt="Frame 13" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 14">
+                <img src="assets/storyboard/storyboard1-frame-14.jpg" alt="Frame 14" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 15">
+                <img src="assets/storyboard/storyboard1-frame-15.jpg" alt="Frame 15" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+            </div>
+          </div>
+
+          <div style="margin-top: 28px; padding-top: 22px; border-top: 1px solid #ECECEE;">
+            <div style="font-size: 14px; font-weight: 700; color: #29292B; margin-bottom: 4px;">Storyboard - "The Musketeers"</div>
+            <div style="font-size: 13px; color: #6C6B71; margin-bottom: 2px;">All frames - click any to browse the entire storyboard</div>
+            <div class="contact-sheet" data-sequence="Frame" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 8px; margin-top: 16px;">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 1">
+                <img src="assets/storyboard/storyboard2-frame-01.jpg" alt="Frame 1" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 2">
+                <img src="assets/storyboard/storyboard2-frame-02.jpg" alt="Frame 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 3">
+                <img src="assets/storyboard/storyboard2-frame-03.jpg" alt="Frame 3" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 4">
+                <img src="assets/storyboard/storyboard2-frame-04.jpg" alt="Frame 4" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 5">
+                <img src="assets/storyboard/storyboard2-frame-05.jpg" alt="Frame 5" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 6">
+                <img src="assets/storyboard/storyboard2-frame-06.jpg" alt="Frame 6" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 7">
+                <img src="assets/storyboard/storyboard2-frame-07.jpg" alt="Frame 7" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 8">
+                <img src="assets/storyboard/storyboard2-frame-08.jpg" alt="Frame 8" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 9">
+                <img src="assets/storyboard/storyboard2-frame-09.jpg" alt="Frame 9" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 10">
+                <img src="assets/storyboard/storyboard2-frame-10.jpg" alt="Frame 10" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 11">
+                <img src="assets/storyboard/storyboard2-frame-11.jpg" alt="Frame 11" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 12">
+                <img src="assets/storyboard/storyboard2-frame-12.jpg" alt="Frame 12" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 13">
+                <img src="assets/storyboard/storyboard2-frame-13.jpg" alt="Frame 13" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 14">
+                <img src="assets/storyboard/storyboard2-frame-14.jpg" alt="Frame 14" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 15">
+                <img src="assets/storyboard/storyboard2-frame-15.jpg" alt="Frame 15" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 16">
+                <img src="assets/storyboard/storyboard2-frame-16.jpg" alt="Frame 16" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 17">
+                <img src="assets/storyboard/storyboard2-frame-17.jpg" alt="Frame 17" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 18">
+                <img src="assets/storyboard/storyboard2-frame-18.jpg" alt="Frame 18" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 19">
+                <img src="assets/storyboard/storyboard2-frame-19.jpg" alt="Frame 19" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 20">
+                <img src="assets/storyboard/storyboard2-frame-20.jpg" alt="Frame 20" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 21">
+                <img src="assets/storyboard/storyboard2-frame-21.jpg" alt="Frame 21" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <button type="button" class="gallery-btn" style="aspect-ratio: 16/9; background: #FAFAFA; border: 1px solid #ECECEE;" onclick="openSequence(event)" aria-label="Open Frame 22">
+                <img src="assets/storyboard/storyboard2-frame-22.jpg" alt="Frame 22" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="portfolio-avatars" style="scroll-margin-top: 90px; margin-bottom: 30px;">
+          <h4 style="margin: 0 0 12px; font-size: 16px; font-weight: 700; color: #29292B;">AI-Avatars and Characters</h4>
+          <div class="scroll-row" data-sequence="Work">
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/other/video-1.mp4" data-video-alt="Neural Photo Session - Video" onclick="openSequence(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Open video: Neural Photo Session">
+                <img src="assets/other/video-1-poster.jpg" alt="Neural Photo Session - Video" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Neural Photo Sessions (Video)</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/other/video-2.mp4" data-video-alt="Neural Photo Session - Video 2" onclick="openSequence(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Open video: Neural Photo Session 2">
+                <img src="assets/other/video-2-poster.jpg" alt="Neural Photo Session - Video 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Neural Photo Sessions (Video)</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/characters_avatars/avatar-socseti-1.mp4" data-video-alt="AI-Avatar for Social Media - Video 1" onclick="openSequence(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Open video: AI-Avatar for Social Media 1">
+                <img src="assets/characters_avatars/avatar-socseti-1-poster.jpg" alt="AI-Avatar for Social Media - Video 1" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">AI-Avatars for Social Media</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/characters_avatars/avatar-socseti-2.mp4" data-video-alt="AI-Avatar for Social Media - Video 2" onclick="openSequence(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Open video: AI-Avatar for Social Media 2">
+                <img src="assets/characters_avatars/avatar-socseti-2-poster.jpg" alt="AI-Avatar for Social Media - Video 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">AI-Avatars for Social Media</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/characters_avatars/avatar-brand-character.mp4" data-video-alt="Virtual Brand Character - Video" onclick="openSequence(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Open video: Virtual Brand Character">
+                <img src="assets/characters_avatars/avatar-brand-character-poster.jpg" alt="Virtual Brand Character - Video" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Virtual Brand Character</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/characters_avatars/avatar-kuznec.mp4" data-video-alt="AI-Avatar - Video" onclick="openSequence(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Open video: AI-Avatar">
+                <img src="assets/characters_avatars/avatar-kuznec-poster.jpg" alt="AI-Avatar - Video" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">AI-Avatars</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="portfolio-brands" style="scroll-margin-top: 90px; margin-bottom: 30px;">
+          <h4 style="margin: 0 0 12px; font-size: 16px; font-weight: 700; color: #29292B;">For Brands and Business</h4>
+          <div class="scroll-row" data-sequence="Work">
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Product Visualization - Music Center in Interior">
+                <img src="assets/promotional/brand-speakers.webp" alt="Product Visualization - Music Center in Interior" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Product Visualization</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Advertising Creative - Illusion Perfume">
+                <img src="assets/promotional/brand-illusion.webp" alt="Advertising Creative - Illusion Perfume" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Advertising Creatives</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Advertising Creative - Burger Fast Food">
+                <img src="assets/promotional/brand-burger.webp" alt="Advertising Creative - Burger Fast Food" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Advertising Creatives</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Mockup - Svitaly Logo on T-Shirt and Notebook">
+                <img src="assets/promotional/brand-svitaly-mockup.webp" alt="Mockup - Svitaly Logo on T-Shirt and Notebook" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Packaging and Mockups</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Packaging - Sunflower Oil">
+                <img src="assets/promotional/brand-oil-packaging.webp" alt="Packaging - Sunflower Oil" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Packaging and Mockups</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Brand Illustration - Troubadour Event Agency">
+                <img src="assets/promotional/brand-trubadur-event.webp" alt="Brand Illustration - Troubadour Event Agency" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Brand Illustrations</div>
+            </div>
+          </div>
+          <div class="scroll-row" data-sequence="Work" style="margin-top: 16px;">
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Logo - Svitaly Photography">
+                <img src="assets/other/logo-svitaly.jpg" alt="Logo - Svitaly Photography" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Logos</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Logo and Brand Style - BUFFO">
+                <img src="assets/other/logo-buffo.jpg" alt="Logo and Brand Style - BUFFO" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Logos</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Logo - Troubadour Event Agency">
+                <img src="assets/other/logo-trubadur.jpg" alt="Logo - Troubadour Event Agency" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Logos</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Brand Book Svitaly - Logo Variations and Color Palette">
+                <img src="assets/logo-svitaly-variations.webp" alt="Brand Book Svitaly - Logo Variations and Color Palette" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Brand Books</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Brand Book - Troubadour Event Agency">
+                <img src="assets/promotional/brandbook-trubadur.jpg" alt="Brand Book - Troubadour Event Agency" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Brand Books</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Brand Illustration - Ineczka AI Creator">
+                <img src="assets/promotional/brand-ineczka-ai-creator.webp" alt="Brand Illustration - Ineczka AI Creator" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Brand Illustrations</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="portfolio-video" style="scroll-margin-top: 90px; margin-bottom: 30px;">
+          <h4 style="margin: 0 0 12px; font-size: 16px; font-weight: 700; color: #29292B;">Video and Animation</h4>
+          <div class="scroll-row" data-sequence="Work">
+            <div class="scroll-item scroll-item-wide">
+              <button type="button" class="gallery-btn" data-video-src="assets/other/video-ai-klip.mp4" data-video-alt="AI-Clip" onclick="openSequence(event)" style="aspect-ratio: 16/9; background: #000000; position: relative; display: block;" aria-label="Open video: AI-Clip">
+                <img src="assets/other/video-ai-klip-poster.jpg" alt="AI-Clip" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">AI-Clips</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/other/video-animation.mp4" data-video-alt="Animation of Static Image" onclick="openSequence(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Open video: Animation of Static Image">
+                <img src="assets/other/video-animation-poster.jpg" alt="Animation of Static Image" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Animation of Static Images</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/reels_shorts/video-reels.mp4" data-video-alt="Content for Reels/Shorts" onclick="openSequence(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Open video: Content for Reels/Shorts">
+                <img src="assets/reels_shorts/video-reels-poster.jpg" alt="Content for Reels/Shorts" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Content for Reels/Shorts</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="portfolio-artists" style="scroll-margin-top: 90px; margin-bottom: 30px;">
+          <h4 style="margin: 0 0 12px; font-size: 16px; font-weight: 700; color: #29292B;">For Artists and Experts</h4>
+          <div class="scroll-row" data-sequence="Work">
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Track Cover - Ineczka">
+                <img src="assets/promotional/dj-ineczka-1.webp" alt="Track Cover - Ineczka" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Track/Album Covers</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/promotional/artist-promo.mp4" data-video-alt="Promo Visual for Performance - Video" onclick="openSequence(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Open video: Promo Visual for Performance">
+                <img src="assets/promotional/artist-promo-poster.jpg" alt="Promo Visual for Performance - Video" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Promo Visuals for Performances</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: DJ Ineczka Poster - Minsk, November 2026">
+                <img src="assets/promotional/dj-ineczka-promo-green.webp" alt="DJ Ineczka Poster - Minsk, November 2026" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Promo Visuals for Performances</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/characters_avatars/artist-character.mp4" data-video-alt="Character - Video" onclick="openSequence(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Open video: Character">
+                <img src="assets/characters_avatars/artist-character-poster.jpg" alt="Character - Video" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Characters</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" data-video-src="assets/characters_avatars/artist-mascots.mp4" data-video-alt="Mascot - Video" onclick="openSequence(event)" style="aspect-ratio: 9/16; background: #000000; position: relative; display: block;" aria-label="Open video: Mascot">
+                <img src="assets/characters_avatars/artist-mascots-poster.jpg" alt="Mascot - Video" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Mascots</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="portfolio-design" style="scroll-margin-top: 90px;">
+          <h4 style="margin: 0 0 12px; font-size: 16px; font-weight: 700; color: #29292B;">Graphic Design</h4>
+          <div class="scroll-row" data-sequence="Work">
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Graphic Design - Studio One: Business Cards, Brochure, Postcard">
+                <img src="assets/other/design-studio-one.webp" alt="Graphic Design - Studio One: Business Cards, Brochure, Postcard" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Graphic Design</div>
+            </div>
+            <div class="scroll-item scroll-item-wide">
+              <button type="button" class="gallery-btn" data-video-src="assets/presentations/design-presentation.mp4" data-video-alt="Presentation - Video" onclick="openSequence(event)" style="aspect-ratio: 16/9; background: #000000; position: relative; display: block;" aria-label="Open video: Presentation">
+                <img src="assets/presentations/design-presentation-poster.jpg" alt="Presentation - Video" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Presentations and Pitch Decks</div>
+            </div>
+            <div class="scroll-item">
+              <button type="button" class="gallery-btn" style="aspect-ratio: 9/16; background: #FAFAFA;" onclick="openSequence(event)" aria-label="Open work: Infographics for Website">
+                <img src="assets/other/design-infographic.webp" alt="Infographics for Website" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+              <div style="font-size: 12px; color: #6C6B71; margin-top: 6px; text-align: center;">Infographics</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="background: #29292B; border-radius: 16px; padding: 36px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <div>
+          <div style="font-size: 18px; font-weight: 700; color: #FFFFFF; margin-bottom: 6px;">Price - Per Project</div>
+          <div style="font-size: 15px; color: #C9C9CD;">Describe your task — I'll send you the calculation and timeline individually</div>
+        </div>
+        <a href="#contacts" class="btn-olive" style="background: #768330; color: #FFFFFF; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 15px; white-space: nowrap;">Discuss Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HANDMADE -->
+  <section id="handmade" style="background: #F4F6FA; position: relative; overflow: hidden;">
+    <div style="position: relative; max-width: 1180px; margin: 0 auto; padding: 100px 24px;">
+      <div style="max-width: 720px; margin-bottom: 48px;">
+        <div style="font-size: 15px; font-weight: 700; color: #46509E; margin-bottom: 14px;">Handmade</div>
+        <h2 style="margin: 0 0 18px; font-size: clamp(26px, 3vw, 36px); font-weight: 800; color: #46509e">Paintings from CD-Disks</h2>
+        <p style="margin: 0 0 16px; font-size: 19px; line-height: 1.7; color: #29292B; font-weight: 600;">A disk is frozen light. I transform its reflections into what glows in reality: feathers, scales, water, metal — and open doors to worlds that don't exist.</p>
+        <p style="margin: 0; font-size: 16px; line-height: 1.75; color: #4A4A4D;">Each work is an appliqué made from cut fragments of CD-disks, where holographic flares convey what paint cannot: the shine of metal, the iridescence of wings, the reflection of water in the sun. Precise graphics and fragile, "impossible" materials together create the feeling of looking into another, fantastic world — a ready-made art object for the home or a gift that can't be confused with anything else.</p>
+      </div>
+
+      <div class="masonry" data-sequence="Painting" style="columns: 4 220px; column-gap: 16px; margin-bottom: 4px;">
+        <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Motorcycle - Painting from CD-Disks">
+          <img src="assets/handmade/handmade-1-motorcycle.jpg" alt="Motorcycle - Painting from CD-Disks" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </button>
+        <button type="button" class="gallery-btn" style="aspect-ratio: 405/600; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Flower - Painting from CD-Disks">
+          <img src="assets/handmade/handmade-2-flower.jpg" alt="Flower - Painting from CD-Disks" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </button>
+        <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Waves - Painting from CD-Disks">
+          <img src="assets/handmade/handmade-3-waves.jpg" alt="Waves - Painting from CD-Disks" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </button>
+        <button type="button" class="gallery-btn" style="aspect-ratio: 405/600; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Orchid - Painting from CD-Disks">
+          <img src="assets/handmade/handmade-4-orchid.jpg" alt="Orchid - Painting from CD-Disks" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </button>
+        <button type="button" class="gallery-btn" style="aspect-ratio: 3/4; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Dragon - Painting from CD-Disks">
+          <img src="assets/handmade/handmade-5-dragon.jpg" alt="Dragon - Painting from CD-Disks" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </button>
+        <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Hieroglyphs - Painting from CD-Disks">
+          <img src="assets/handmade/handmade-6-hieroglyphs.jpg" alt="Hieroglyphs - Painting from CD-Disks" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </button>
+        <button type="button" class="gallery-btn" style="aspect-ratio: 405/600; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Butterflies - Painting from CD-Disks">
+          <img src="assets/handmade/handmade-7-butterflies.jpg" alt="Butterflies - Painting from CD-Disks" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </button>
+        <button type="button" class="gallery-btn" style="aspect-ratio: 4/3; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Castle and Ship - Painting from CD-Disks">
+          <img src="assets/handmade/handmade-8-castle.jpg" alt="Castle and Ship - Painting from CD-Disks" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </button>
+        <button type="button" class="gallery-btn" style="aspect-ratio: 342/508; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Sakura - Painting from CD-Disks">
+          <img src="assets/handmade/handmade-9-sakura.jpg" alt="Sakura - Painting from CD-Disks" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </button>
+        <button type="button" class="gallery-btn" style="aspect-ratio: 287/600; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Green Dragon - Painting from CD-Disks">
+          <img src="assets/handmade/handmade-10-green-dragon.jpg" alt="Green Dragon - Painting from CD-Disks" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </button>
+        <button type="button" class="gallery-btn" style="aspect-ratio: 335/422; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Blue Dragon - Painting from CD-Disks">
+          <img src="assets/handmade/handmade-11-blue-dragon.jpg" alt="Blue Dragon - Painting from CD-Disks" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </button>
+        <button type="button" class="gallery-btn" style="aspect-ratio: 532/360; background: #FFFFFF;" onclick="openSequence(event)" aria-label="Open work: Butterfly Kiss - Painting from CD-Disks">
+          <img src="assets/handmade/handmade-12-butterfly-kiss.jpg" alt="Butterfly Kiss - Painting from CD-Disks" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </button>
+      </div>
+      <p style="margin: 0 0 40px; font-size: 14px; color: #6C6B71;">Some works from the author's personal archive — for current gallery and prices, inquire directly.</p>
+
+      <div style="background: #29292B; border-radius: 16px; padding: 36px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <div>
+          <div style="font-size: 18px; font-weight: 700; color: #FFFFFF; margin-bottom: 6px;">Ready-Made Works and Custom Orders</div>
+          <div style="font-size: 15px; color: #C9C9CD;">Price depends on size and complexity of the subject — inquired individually</div>
+        </div>
+        <a href="#contacts" class="btn-teal" style="background: #00A6A6; color: #FFFFFF; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 15px; white-space: nowrap;">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="background: #FFFFFF;">
+    <div style="max-width: 820px; margin: 0 auto; padding: 100px 24px; text-align: center;">
+      <div style="font-size: 15px; font-weight: 700; color: #6C6B71; margin-bottom: 14px;">About Me</div>
+      <h2 style="margin: 0 0 22px; font-size: clamp(24px, 3vw, 32px); font-weight: 800; color: #29292B;"><span style="font-weight: normal">Inna Voitiuk</span></h2>
+      <p style="margin: 0; font-size: 17px; line-height: 1.8; color: #4A4A4D;">Artist and AI-creator - Ineczka: <br>I create illustrations, storyboards and serials based on them, AI-avatars and visuals for brands. I'm also a creative person, creating paintings from CD-disks and more. Behind this combination is one idea: finding light and transforming ordinary tools and materials into something that didn't exist before. <br>16 years of experience in graphic design and outdoor advertising. <br>Creativity in graphics, printing, photography, design and applied art<br>- this is my second nature.<br>Each project for me is individual and interesting in its implementation. as an opportunity to gain even more creative experience.&nbsp;</p>
+    </div></section><section id="contacts" style="background: #29292B; position: relative; overflow: hidden">
+    <div class="deco-olive-splash" style="position: absolute; top: 30px; left: -87px; width: 340px; height: 280px; opacity: 0.6; transform: rotate(-90deg)"></div>
+    <div class="deco-purple-splash" style="position: absolute; width: 360px; height: 300px; opacity: 0.85; transform: rotate(-90deg); right: -114px; top: 199px"></div>
+    <div style="position: relative; max-width: 1180px; margin: 0 auto; padding: 90px 24px 70px; text-align: center;">
+      <img src="assets/other/logo-white.png" alt="Ineczka" style="height: 46px; width: auto; display: block; margin: 0 auto 28px; filter: brightness(0) invert(1);">
+      <h2 style="margin: 0 0 16px; font-size: clamp(24px, 3vw, 32px); font-weight: 800; color: #FFFFFF;">Let's Discuss Your Project?</h2>
+      <p style="margin: 0 0 40px; font-size: 16px; color: #C9C9CD;">Brest, Belarus · I work remotely with brands and clients from anywhere in the world</p>
+
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 44px;">
+        <a href="tel:+375297202785" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">+375 29 720-27-85</a>
+        <a href="https://wa.me/375297202785" target="_blank" rel="noopener" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">WhatsApp</a>
+        <a href="https://t.me/+375297202785" target="_blank" rel="noopener" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">Telegram</a>
+        <a href="https://www.instagram.com/ine4ka_viv/" target="_blank" rel="noopener" class="contact-link" style="background: #363639; color: #FFFFFF; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 15px;">Instagram</a>
+      </div>
+
+      <div style="border-top: 1px solid #3E3E41; padding-top: 28px; font-size: 13px; color: #8C8C90;">© Ineczka — AI-CREATOR &amp; Handmade, 2026</div>
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+
+
+  <div id="lightbox-overlay" style="display: none; position: fixed; inset: 0; background: rgba(20,20,20,0.92); z-index: 100; align-items: center; justify-content: center; padding: 40px; box-sizing: border-box;" onclick="closeLightbox()">
+    <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Close Preview" style="position: absolute; top: 24px; right: 24px; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.12); border: none; color: #FFFFFF; font-size: 22px; line-height: 1; cursor: pointer;">×</button>
+    <video id="lightbox-video" controls playsinline style="display: none; max-width: 90vw; max-height: 85vh; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);"></video>
+    <img id="lightbox-image" src="" alt="" style="display: none; max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+    <button type="button" id="lightbox-prev" onclick="prevFrame(event)" aria-label="Previous Frame" style="display: none; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.12); border: none; color: #FFFFFF; font-size: 22px; cursor: pointer;">‹</button>
+    <button type="button" id="lightbox-next" onclick="nextFrame(event)" aria-label="Next Frame" style="display: none; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.12); border: none; color: #FFFFFF; font-size: 22px; cursor: pointer;">›</button>
+    <div id="lightbox-counter" style="display: none; position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); color: #FFFFFF; font-size: 14px; background: rgba(0,0,0,0.4); padding: 6px 16px; border-radius: 999px;"></div>
+  </div>
+
+</div>
+<script>
+  var sequence = null;
+
+  function render() {
+    var lbVideo = document.getElementById('lightbox-video');
+    var lbImage = document.getElementById('lightbox-image');
+    var prevBtn = document.getElementById('lightbox-prev');
+    var nextBtn = document.getElementById('lightbox-next');
+    var counter = document.getElementById('lightbox-counter');
+
+    if (sequence) {
+      var item = sequence.items[sequence.index];
+      if (item.video) {
+        lbImage.style.display = 'none';
+        if (lbVideo.getAttribute('src') !== item.video) lbVideo.src = item.video;
+        lbVideo.style.display = 'block';
+        lbVideo.play();
+      } else {
+        lbVideo.pause();
+        lbVideo.removeAttribute('src');
+        lbVideo.style.display = 'none';
+        lbImage.src = item.src;
+        lbImage.alt = item.alt || '';
+        lbImage.style.display = 'block';
+      }
+      prevBtn.style.display = 'flex';
+      nextBtn.style.display = 'flex';
+      counter.style.display = 'block';
+      counter.textContent = sequence.label + ' ' + (sequence.index + 1) + ' of ' + sequence.items.length;
+    } else {
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'none';
+      counter.style.display = 'none';
+    }
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox-overlay').style.display = 'none';
+    var video = document.getElementById('lightbox-video');
+    video.pause();
+    video.removeAttribute('src');
+    video.style.display = 'none';
+    document.getElementById('lightbox-image').style.display = 'none';
+    sequence = null;
+  }
+
+  // Browsable series: all .gallery-btn inside nearest container with data-sequence
+  // (storyboards — "Frame", Handmade paintings — "Painting", portfolio feeds — "Work").
+  function openSequence(evt) {
+    var btn = evt.currentTarget;
+    var sheet = btn.closest('[data-sequence]');
+    if (!sheet) return;
+    var buttons = Array.prototype.slice.call(sheet.querySelectorAll('.gallery-btn'));
+    var items = buttons.map(function (b) {
+      var im = b.querySelector('img');
+      return { src: im ? (im.currentSrc || im.src) : '', alt: im ? (im.alt || '') : '', video: b.getAttribute('data-video-src') };
+    });
+    var index = buttons.indexOf(btn);
+    sequence = { items: items, index: index < 0 ? 0 : index, label: sheet.getAttribute('data-sequence') };
+    document.getElementById('lightbox-overlay').style.display = 'flex';
+    render();
+  }
+
+  function prevFrame(evt) {
+    if (evt && evt.stopPropagation) evt.stopPropagation();
+    if (sequence && sequence.index > 0) {
+      sequence.index -= 1;
+      render();
+    }
+  }
+
+  function nextFrame(evt) {
+    if (evt && evt.stopPropagation) evt.stopPropagation();
+    if (sequence && sequence.index < sequence.items.length - 1) {
+      sequence.index += 1;
+      render();
+    }
+  }
+
+  document.addEventListener('keydown', function (e) {
+    var overlay = document.getElementById('lightbox-overlay');
+    if (overlay.style.display === 'none' || !overlay.style.display) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prevFrame();
+    if (e.key === 'ArrowRight') nextFrame();
+  });
+
+  // Touch swipe on storyboard: swipe left — next frame, swipe right — previous frame
+  var touchStart = null;
+  var lightboxOverlay = document.getElementById('lightbox-overlay');
+  lightboxOverlay.addEventListener('touchstart', function (e) {
+    var t = e.changedTouches[0];
+    touchStart = { x: t.clientX, y: t.clientY };
+  }, { passive: true });
+  lightboxOverlay.addEventListener('touchend', function (e) {
+    if (!touchStart || !sequence) { touchStart = null; return; }
+    var t = e.changedTouches[0];
+    var dx = t.clientX - touchStart.x;
+    var dy = t.clientY - touchStart.y;
+    touchStart = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+    if (dx < 0) nextFrame(); else prevFrame();
+  });
+</script>
+</body>
+</html>
