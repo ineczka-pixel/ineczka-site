@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ineczka — AI-CREATOR and Handmade</title>
+<script>
+// Определяем язык пользователя и его регион
+function detectLanguage() {
+  // 1. Проверяем сохраненный выбор в localStorage
+  const savedLang = localStorage.getItem('ineczka-lang');
+  if (savedLang) {
+    return savedLang;
+  }
+
+  // 2. Определяем язык браузера
+  const browserLang = navigator.language || navigator.userLanguage;
+
+  // 3. Список русскоязычных регионов
+  const russianRegions = ['ru', 'by', 'kz', 'ua', 'ky', 'uz', 'tj', 'tm'];
+
+  // Проверяем, начинается ли код языка с "ru" или "be" и т.д.
+  const langCode = browserLang.split('-')[0].toLowerCase();
+
+  if (russianRegions.includes(langCode)) {
+    return 'ru';
+  }
+
+  // 4. Если не русский - английский
+  return 'en';
+}
+
+// Получаем определенный язык
+const userLanguage = detectLanguage();
+
+// Сохраняем в localStorage
+localStorage.setItem('ineczka-lang', userLanguage);
+
+// Редиректим на нужную версию
+if (userLanguage === 'en') {
+  // Для английского используем index-en.html
+  if (window.location.pathname.includes('index-auto.html') || window.location.pathname.endsWith('/')) {
+    window.location.href = window.location.pathname.replace('index-auto.html', 'index-en.html');
+  }
+} else {
+  // Для русского используем index.html
+  if (window.location.pathname.includes('index-auto.html')) {
+    window.location.href = window.location.pathname.replace('index-auto.html', 'index.html');
+  }
+}
+</script>
+<noscript>
+<!-- Если JavaScript отключен, показываем меню выбора языка -->
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #782182 0%, #46509E 100%);
+  }
+  .language-selector {
+    background: white;
+    padding: 60px 40px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .language-selector h1 {
+    margin: 0 0 30px;
+    font-size: 28px;
+    color: #29292B;
+  }
+  .language-selector p {
+    margin: 0 0 40px;
+    font-size: 16px;
+    color: #6C6B71;
+  }
+  .buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 16px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+  .btn-ru {
+    background: #782182;
+    color: white;
+  }
+  .btn-en {
+    background: #46509E;
+    color: white;
+  }
+</style>
+<div class="language-selector">
+  <h1>Choose Language / Выберите язык</h1>
+  <p>Please enable JavaScript for automatic language detection</p>
+  <div class="buttons">
+    <a href="index.html" class="btn btn-ru">Русский</a>
+    <a href="index-en.html" class="btn btn-en">English</a>
+  </div>
+</div>
+</noscript>
+</head>
+<body>
+<!-- Пока редирект выполняется, показываем загрузку -->
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #782182 0%, #46509E 100%);
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  .loading {
+    text-align: center;
+    color: white;
+  }
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
+<div class="loading">
+  <div class="spinner"></div>
+  <p>Loading... / Загрузка...</p>
+</div>
+</body>
+</html>
